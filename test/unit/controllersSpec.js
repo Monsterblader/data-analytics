@@ -20,8 +20,7 @@ describe('McApp Controllers', function(){
     }));
 
     it('should fetch Capacity.json data from xhr', function() {
-      console.log(scope.capacityData);
-      expect(scope.capacityData).toEqual([]);
+      expect(scope.capacityData).toBe;
       $httpBackend.flush();
       expect(scope.capacityData).toEqualData(
         ["Availability","R&WO","Wholesale","Credit Ops","Fraud Ops","PPI","Global Payments","Customer Service","Total"]
