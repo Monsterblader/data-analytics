@@ -2,30 +2,31 @@
 
 /* jasmine specs for controllers go here */
 
-describe('MyCtrl1', function(){
-  var myCtrl1;
+describe('McApp Controllers', function(){
 
-  beforeEach(function(){
-    myCtrl1 = new MyCtrl1();
+  beforeEach(module('McApp.services'));
+
+  describe('CapacityCtrl', function(){
+    var scope, ctrl, $httpBackend;
+
+    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET('../data/Capacity.json')
+        .respond();
+        // .respond(["Availability","R&WO","Wholesale","Credit Ops","Fraud Ops","PPI","Global Payments","Customer Service","Total"]);
+
+      scope = $rootScope.$new();
+      ctrl = $controller(CapacityCtrl, {$scope: scope});
+    }));
+
+    it('should fetch Capacity.json data from xhr', function() {
+      console.log(scope.capacityData);
+      expect(scope.capacityData).toEqual([]);
+      $httpBackend.flush();
+      expect(scope.capacityData).toEqualData(
+        ["Availability","R&WO","Wholesale","Credit Ops","Fraud Ops","PPI","Global Payments","Customer Service","Total"]
+      );
+    });
   });
 
-
-  it('should ....', function() {
-    //spec body
-  });
-});
-
-
-describe('MyCtrl2', function(){
-  var myCtrl2;
-
-
-  beforeEach(function(){
-    myCtrl2 = new MyCtrl2();
-  });
-
-
-  it('should ....', function() {
-    //spec body
-  });
 });
