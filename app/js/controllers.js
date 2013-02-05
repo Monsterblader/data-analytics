@@ -2,21 +2,24 @@
 
 /* Controllers */
 
-function HomeCtrl() {}
-HomeCtrl.$inject = [];
+function HomeCtrl(){
+
+}
+// HomeCtrl.$inject = [];
 
 function OperationsCtrl() {
 }
-OperationsCtrl.$inject = [];
+// OperationsCtrl.$inject = [];
 
 function HeadCountCtrl() {
 }
-HeadCountCtrl.$inject = [];
+// HeadCountCtrl.$inject = [];
 
-function CapacityCtrl() {
+function CapacityCtrl($scope, CapacityData) {
+  $scope.capacityData = CapacityData.query();
 }
-CapacityCtrl.$inject = [];
+// CapacityCtrl.$inject = [];
 
 function ColleaguesCtrl() {
 }
-ColleaguesCtrl.$inject = [];
+// ColleaguesCtrl.$inject = [];

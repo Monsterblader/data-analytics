@@ -2,8 +2,8 @@
 
 /* Services */
 
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('McApp.services', []).
-  value('version', '0.1');
+angular.module('McApp.services', ['ngResource'])
+  .factory('CapacityData', function($resource){
+    return $resource('../data/Capacity.json', {}, {query: {method:'GET'}
+  });
+});
