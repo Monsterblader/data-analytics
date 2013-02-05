@@ -2,11 +2,21 @@
 
 /* Controllers */
 
+function HomeCtrl() {}
+HomeCtrl.$inject = [];
 
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
-
-
-function MyCtrl2() {
+function OperationsCtrl() {
 }
-MyCtrl2.$inject = [];
+OperationsCtrl.$inject = [];
+
+function HeadCountCtrl() {
+}
+HeadCountCtrl.$inject = [];
+
+function CapacityCtrl() {
+}
+CapacityCtrl.$inject = [];
+
+function ColleaguesCtrl() {
+}
+ColleaguesCtrl.$inject = [];
