@@ -2,9 +2,9 @@
 
 /* Filters */
 
-angular.module('McApp.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    }
-  }]);
+// angular.module('McApp.filters', []).
+//   filter('interpolate', ['version', function(version) {
+//     return function(text) {
+//       return String(text).replace(/\%VERSION\%/mg, version);
+//     }
+//   }]);
