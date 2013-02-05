@@ -1,5 +1,12 @@
 /* app css stylesheet */
 
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.sidebar-nav {
+  padding: 9px 0;
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -27,4 +34,37 @@
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+
+.navbar a.brand{
+  margin-left:43%;
+  color: white;
+  text-shadow: none;
+}
+
+.navbar-inner{
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(#349EEB),to(#2C82C0));
+}
+
+.container-fluid{
+  padding: 0;
+}
+
+.row-fluid [class*="span"]{
+  margin-left: 0px;
+}
+
+.navbar a.cog{
+  font-size: 25px;
+  color: white;
+  float: right;
+  margin-top: 7px;
+}
+
+.span1{
+  width: 7%!important;
+}
+
+.span11{
+  width: 93%!important;
 }
