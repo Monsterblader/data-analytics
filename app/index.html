@@ -1,6 +1,17 @@
+<!-- 
+rounded corners - http://bl.ocks.org/3468167
+            http://stackoverflow.com/questions/12115691/svg-d3-js-rounded-corner-on-one-corner-of-a-rectangle
+ -->
 <!doctype html>
 <script src="lib/d3.v3.js"></script>
 <script src="lib/underscore.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+<!-- / -->
 <html lang="en" ng-app="myApp">
 <style>
  
@@ -35,8 +46,8 @@ body {
   <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},  
-    width = 960 - margin.left - margin.right,             
-    height = 500 - margin.top - margin.bottom;
+    width = 600 - margin.left - margin.right,             
+    height = 300 - margin.top - margin.bottom;
 
 /* this establishes our x axis scale as being ordinal, or a discreet mapping of the domain to the range */
 var x = d3.scale.ordinal()
@@ -60,14 +71,14 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
  
-d3.csv("data/data.csv", function(error, data) {
+d3.csv("data/monthly-perf-actual.csv", function(error, data) {
  
   data.forEach(function(d) {
-    d.divisors = +d.divisors;
+    d.amount = +d.amount;
   });
  
-  x.domain(data.map(function(d) { return d.number; }));
-  y.domain([0, d3.max(data, function(d) { return d.divisors; })]);
+  x.domain(data.map(function(d) { return d.date; }));
+  y.domain([0, d3.max(data, function(d) { return d.amount; })]);
  
   svg.append("g")
       .attr("class", "x axis")
@@ -82,16 +93,18 @@ d3.csv("data/data.csv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Total Integer Factors of N");
+      .text("");
  
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.number); })
+      .attr("x", function(d) { return x(d.date); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.divisors); })
-      .attr("height", function(d) { return height - y(d.divisors); });
+      .attr("y", function(d) { return y(d.amount); })
+      .attr("height", function(d) { return height - y(d.amount); })
+      .attr("rx", 11)
+      .attr("ry", 11);
  
  
 });
@@ -110,12 +123,7 @@ d3.csv("data/data.csv", function(error, data) {
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
   -->
 
-  <script src="lib/angular/angular.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
+
 
 
 </body>
