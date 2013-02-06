@@ -1,8 +1,5 @@
-
 <!doctype html>
 <script src="lib/d3.v3.js"></script>
-<script src="js/operations-cost-heatmap.js"></script>
-<!-- 
 <script src="lib/underscore.js"></script>
 <script src="lib/angular/angular.js"></script>
 <script src="js/app.js"></script>
@@ -10,191 +7,34 @@
 <script src="js/controllers.js"></script>
 <script src="js/filters.js"></script>
 <script src="js/directives.js"></script>
- -->
-<!-- / -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="js/operations-cost-heatmap.js"></script>
+<script src="js/operations-cost-total-combo-dual-axis.js"></script>
+
 <html lang="en" ng-app="myApp">
 <style>
   body {
     font: 10px sans-serif;
   }
 </style>
-
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container',
-                zoomType: 'xy'
-            },
-            title: {
-                text: 'Average Monthly Temperature and Rainfall in Tokyo'
-            },
-            subtitle: {
-                text: 'Source: WorldClimate.com'
-            },
-            xAxis: [{
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            }],
-            yAxis: [{ // Primary yAxis
-                labels: {
-                    formatter: function() {
-                        return this.value +'°C';
-                    },
-                    style: {
-                        color: '#89A54E'
-                    }
-                },
-                title: {
-                    text: 'Temperature',
-                    style: {
-                        color: '#89A54E'
-                    }
-                }
-            }, { // Secondary yAxis
-                title: {
-                    text: 'Rainfall',
-                    style: {
-                        color: '#4572A7'
-                    }
-                },
-                labels: {
-                    formatter: function() {
-                        return this.value +' mm';
-                    },
-                    style: {
-                        color: '#4572A7'
-                    }
-                },
-                opposite: true
-            }],
-            tooltip: {
-                formatter: function() {
-                    return ''+
-                        this.x +': '+ this.y +
-                        (this.series.name == 'Rainfall' ? ' mm' : '°C');
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'left',
-                x: 120,
-                verticalAlign: 'top',
-                y: 100,
-                floating: true,
-                backgroundColor: '#FFFFFF'
-            },
-            series: [{
-                name: 'Rainfall',
-                color: '#4572A7',
-                type: 'column',
-                yAxis: 1,
-                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-    
-            }, {
-                name: 'Temperature',
-                color: '#89A54E',
-                type: 'spline',
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            }]
-        });
-    });
-    
-});
-    </script>
-
   <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
+  <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+  <div id='heatmap'></div>
 
-  <script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
-
-<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
-
-<script>
-
-// var margin = {top: 20, right: 20, bottom: 30, left: 40},  
-//     width = 600 - margin.left - margin.right,             
-//     height = 300 - margin.top - margin.bottom;
-
-// /* this establishes our x axis scale as being ordinal, or a discreet mapping of the domain to the range */
-// var x = d3.scale.ordinal()
-//     .rangeRoundBands([0, width], .1);
- 
-// var y = d3.scale.linear()
-//     .range([height, 0]);
- 
-// var xAxis = d3.svg.axis()
-//     .scale(x)
-//     .orient("bottom");
- 
-// var yAxis = d3.svg.axis()
-//     .scale(y)
-//     .orient("left")
-//     // .tickFormat(formatYNumbers);
- 
-// var svg = d3.select("body").append("svg")
-//     .attr("width", width + margin.left + margin.right)
-//     .attr("height", height + margin.top + margin.bottom)
-//   .append("g")
-//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
- 
-// d3.csv("data/monthly-perf-actual.csv", function(error, data) {
- 
-//   data.forEach(function(d) {
-//     d.amount = +d.amount;
-//   });
- 
-//   x.domain(data.map(function(d) { return d.date; }));
-//   y.domain([0, d3.max(data, function(d) { return d.amount; })]);
- 
-//   svg.append("g")
-//       .attr("class", "x axis")
-//       .attr("transform", "translate(0," + height + ")")
-//       .call(xAxis);
- 
-//   svg.append("g")
-//       .attr("class", "y axis")
-//       .call(yAxis)
-//     .append("text")
-//       .attr("transform", "rotate(-90)")
-//       .attr("y", 6)
-//       .attr("dy", ".71em")
-//       .style("text-anchor", "end")
-//       .text("");
- 
-//   svg.selectAll(".bar")
-//       .data(data)
-//     .enter().append("rect")
-//       .attr("class", "bar")
-//       .attr("x", function(d) { return x(d.date); })
-//       .attr("width", x.rangeBand())
-//       .attr("y", function(d) { return y(d.amount); })
-//       .attr("height", function(d) { return height - y(d.amount); })
-//       .attr("rx", 11)
-//       .attr("ry", 11);
- 
- 
-// });
-</script>
-  
-<div id='heatmap'></div>
-  
-  <!-- <ul class="menu">
+  <ul class="menu">
     <li><a href="#/view1">view1</a></li>
     <li><a href="#/view2">view2</a></li>
   </ul>
 
   <div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div> -->
+  <div>Angular seed app: v<span app-version></span></div>
 
 </body>
 </html>
