@@ -1,7 +1,7 @@
 $(function () {
     var chart,
-        categories = ['GL1', 'GL2', 'GL3', 'GL4',
-            'GL5', 'GL6', 'GL7', 'GL8', 'Total'];
+        categories = ['Total', 'GL8', 'GL7', 'GL6', 'GL5',
+            'GL4', 'GL3', 'GL2', 'GL1'];
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
@@ -32,8 +32,8 @@ $(function () {
                         return (Math.abs(this.value) / 100) + '%';
                     }
                 },
-                min: -40,
-                max: 40
+                min: -10,
+                max: 10
             },
 
             plotOptions: {
@@ -50,26 +50,26 @@ $(function () {
             },
 
             series: [{
-                name: 'Variance to Monthly Budget',
+                // name: 'Variance to Monthly Budget',
                 data:
                     [ -17
                     , 0
                     , 0
-                    , -22
+                    , -19
                     , -2
                     , 0
                     , -5
                     , -13 ]
             },
             {
-                name: 'Variance to YTD Budget',
+                // name: 'Variance to YTD Budget',
                 data:
                     [ 0
                     , 12
                     , 15
                     , 0
                     , 0
-                    , 25
+                    , 19
                     , 0
                     , 0 ]
             }
