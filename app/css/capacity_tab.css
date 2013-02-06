@@ -1,0 +1,25 @@
+.target-volume, .actual-volume {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 500px;
+}
+/*
+.actual-volume {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 500px;
+}*/
+
+.blue-bar {
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(#349EEB),to(#2C82C0));
+}
+
+.blue-bar-text {
+  color: white;
+  padding: 5px;
+  margin: 7px 10px;
+}
+
+.row .average {
+  display: inline;
+}

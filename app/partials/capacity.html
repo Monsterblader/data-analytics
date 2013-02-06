@@ -1,32 +1,25 @@
 <!-- Charts -->
 <div class="row">
   <!-- Target Volume chart -->
-  <div class="span5 target-volume">
-    
-  </div>
+  <div class="span6 target-volume" id="target-volume"></div>
   <!-- Actual Volume chart -->
-  <div class="span5 actual-volume">
-    
-  </div>
+  <div class="span6 actual-volume" id="actual-volume"></div>
 </div>
 <!-- Blue bar -->
 <div class="row">
-  <div class="span11">
-    
+  <div class="span12 blue-bar">
+    <p class="blue-bar-text">Volume tracking by Business Unit</p>
   </div>
 </div>
-<!-- Column Totals -->
-<div class="row">
-  <div class="span1"></div>
-  <div class="span1"></div>
-  <div class="span1"></div>
-  <div class="span1"></div>
-  <div class="span1"></div>
-  <div class="span1"></div>
-  <div class="span1"></div>
-  <div class="span1"></div>
+<!-- Target Column Totals -->
+<div class="row target-column-totals">
+  <div class="span1 average" ng-repeat="average in targetVolumeAverages">{{ average }}</div>
+</div>
+<!-- Actual Column Totals -->
+<div class="row actual-column-totals">
+  <div class="span1 average" ng-repeat="average in actualVolumeAverages">{{ average }}</div>
 </div>
 
-<p>hello</p>
+<!-- <p>hello</p> -->
 
-<p ng-model="capacityData">{{ capacityData }}</p>
+<!-- <p ng-model="capacityData">{{ capacityData }}</p> -->
