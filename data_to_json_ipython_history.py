@@ -110,7 +110,7 @@ will2 = [i[1:] for i in will2]
 
 colleagues_d = {
     'AGREE': {'headers': agree[1], 'values': agree[2:13], 'footer': agree[13]},
-    'DISAGREE': {'headers': agree[16], 'values': agree[17:], 'footer': agree[28]},
+    'DISAGREE': {'headers': agree[16], 'values': agree[17:28], 'footer': agree[28]},
     'Skill': skill2,
     'Will': will2
 }
