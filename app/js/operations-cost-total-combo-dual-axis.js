@@ -10,42 +10,42 @@ $(function () {
                 text: 'Total £, M'
             },
             subtitle: {
-                text: 'Source: WorldClimate.com'
+                text: '' // Source: WorldClimate.com
             },
             xAxis: [{
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
             }],
             yAxis: [{ // Primary yAxis
-                labels: {
-                    formatter: function() {
-                        return this.value +'°C';
-                    },
-                    style: {
-                        color: '#89A54E'
-                    }
-                },
+                // labels: {
+                //     formatter: function() {
+                //         return this.value +'°C';
+                //     },
+                //     style: {
+                //         color: '#89A54E'
+                //     }
+                // },
                 title: {
-                    text: 'Temperature',
+                    text: '', // Temperature
                     style: {
                         color: '#89A54E'
                     }
                 }
             }, { // Secondary yAxis
                 title: {
-                    text: 'Rainfall',
+                    text: '', // Rainfall
                     style: {
                         color: '#4572A7'
                     }
                 },
-                labels: {
-                    formatter: function() {
-                        return this.value +' mm';
-                    },
-                    style: {
-                        color: '#4572A7'
-                    }
-                },
+                // labels: {
+                //     formatter: function() {
+                //         return this.value +' mm';
+                //     },
+                //     style: {
+                //         color: '#4572A7'
+                //     }
+                // },
                 opposite: true
             }],
             tooltip: {
