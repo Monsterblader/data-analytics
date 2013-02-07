@@ -20,6 +20,16 @@
   body {
     font: 10px sans-serif;
   }
+  table { border-collapse: collapse;
+    border-spacing: 2;
+font-family: Futura, Arial, sans-serif; }
+caption { font-size: larger; margin: 1em auto; }
+th, td { padding: .65em; }
+th, thead { background: #000; color: #fff; border: 1px solid #000; }
+tr:nth-child(odd) { background: #ccc; }
+tr:hover { background: #aaa; }
+td { border-right: 1px solid #777; }
+table { border: 1px solid #777; }
 </style>
 <head>
   <meta charset="utf-8">
@@ -38,6 +48,22 @@
   <div ng-view></div>
 
   <div>Angular seed app: v<span app-version></span></div>
+
+<table>
+<caption>American Film Institute’s Top Five Films</caption>
+<col><col><col>
+<thead>
+<tr><th>Position <th>Movie <th>Year of Release
+</thead>
+<tbody>
+<tr><td>1 <td>Citizen Kane <td>1941
+<tr><td>2 <td>The Godfather <td>1972
+<tr><td>3 <td>Casablanca <td>1942
+<tr><td>4 <td>Raging Bull <td>1980
+<tr><td>5 <td>Singin’ In The Rain 3f4gcfutehoduhteod <td>1952
+</tbody>
+</table>
+<img src="data/chart.png" />
 
 </body>
 </html>

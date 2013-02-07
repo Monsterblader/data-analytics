@@ -38,9 +38,16 @@ $(function () {
 
             plotOptions: {
                 series: {
-                    stacking: 'normal'
+                    stacking: 'normal',
+                    shadow: false
                 }
             },
+
+            // plotOptions: {
+            //     series: {
+            //         borderRadius: 2
+            //     }
+            // },
 
             tooltip: {
                 formatter: function(){
@@ -50,19 +57,20 @@ $(function () {
             },
 
             series: [{
-                // name: 'Variance to Monthly Budget',
+                name: 'Variance to Monthly Budget',
                 data:
-                    [ -17
+                    [ 10
                     , 0
                     , 0
                     , -19
                     , -2
                     , 0
-                    , -5
-                    , -13 ]
+                    , {y: -10, color: 'red'}
+                    , 0
+                    , -4 ]
             },
             {
-                // name: 'Variance to YTD Budget',
+                name: 'Variance to YTD Budget',
                 data:
                     [ 0
                     , 12
@@ -71,7 +79,8 @@ $(function () {
                     , 0
                     , 19
                     , 0
-                    , 0 ]
+                    , {y: 10, color: 'green'}
+                    , 0]
             }
             ]
         });
