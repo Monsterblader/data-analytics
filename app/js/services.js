@@ -15,6 +15,22 @@ var months = {
   ,'12': 'Dec'
 };
 
+var zone = function(difference){
+  var zone;
+  switch (true){
+    case (difference < -5):
+      zone = 'red';
+      break;
+    case (difference < 0):
+      zone = 'yellow';
+      break;
+    default:
+      zone = 'green';
+      break;
+  }
+  return zone;
+};
+
 /* Services */
 
 var capacityModule = angular.module('McApp.capacityServices', []);
@@ -22,6 +38,7 @@ var capacityModule = angular.module('McApp.capacityServices', []);
 capacityModule.factory('getVolumeDifference', function(){
   return function(data, dataset){
     var values = (dataset === 'target') ? data.Target.values : data.Actual.values;
+    var differencePercentage = (dataset === 'target') ? 70 : 85;
     // Put row data into columns
     var columns = [
        [] // Asia Minor
@@ -40,13 +57,34 @@ capacityModule.factory('getVolumeDifference', function(){
       }
     }
     var noOfRows = columns[0].length;
-    var averages = _.map(columns, function(column){
+    var averages = [
+       [{column: 'Asia Minor'}]
+      ,[{column: 'SuperCard'}]
+      ,[{column: 'Western'}]
+      ,[{column: 'Africa'}]
+      ,[{column: 'Banking'}]
+      ,[{column: 'Corporate'}]
+      ,[{column: 'Wealth'}]
+      ,[{column: 'Total'}]
+    ];
+
+    columns.map(function(column, index, list){
       var sum = _.reduce(column, function(memo, num){
         return memo + num;
       }, 0);
-      return Number( (sum / noOfRows).toFixed(1) );
+      var average = Number( (sum / noOfRows).toFixed(1) );
+      var difference = Number( (differencePercentage - average).toFixed(1) );
+      averages[index][0]["average"] = average;
+      averages[index][0]["difference"] = difference;
+      averages[index][0]["zone"] = zone(difference);
     });
-    // console.log(averages);
+    // var averages = _.map(columns, function(column){
+    //   var sum = _.reduce(column, function(memo, num){
+    //     return memo + num;
+    //   }, 0);
+    //   return Number( (sum / noOfRows).toFixed(1) );
+    // });
+    console.log(averages);
     return averages;
   };
 });
