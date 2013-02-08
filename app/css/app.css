@@ -4,7 +4,7 @@ html{
   overflow: hidden;
 }
 
-html,body,.row-fluid,.container-fluid, .span1, .sidebar-nav{
+html,body,.row-fluid.tall,.container-fluid, .span1, .sidebar-nav{
   height: 100%;
   font-family: 'Open Sans', sans-serif;
 }
@@ -125,4 +125,27 @@ ul.nav.nav-list li{
   margin-top: 44px;
   font-size: 23px;
   color: grey;
+}
+
+.dashBoardBox i.bigicon{
+  margin-right: 15px;
+  color: #8A8A8A;
+}
+
+.dashBoardBox h2{
+  color: #2269A6;
+}
+
+.dashBoardBox .row-fluid [class*="span"]{
+  padding:  10px;
+}
+
+.dashBoardBox i.icon-check, .dashBoardBox i.icon-exclamation-sign{
+  float: right;
+  font-size: 50px;
+  padding-right: 10%;
+}
+
+.dashBoardBox i.icon-check{
+  color: green!important;
 }
