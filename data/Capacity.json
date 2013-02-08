@@ -1,5 +1,5 @@
 {
-  "Availability": {
+  "Actual": {
     "headers": [
       "Actual Volume",
       "Asia Minor",
@@ -806,7 +806,7 @@
       ]
     ]
   },
-  "Utilization": {
+  "Target": {
     "headers": [
       "Target Volume",
       "Asia Minor",
