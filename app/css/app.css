@@ -2,6 +2,7 @@
 
 html,body,.row-fluid,.container-fluid, .span1, .sidebar-nav{
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 body {
   margin-top: 40px;
