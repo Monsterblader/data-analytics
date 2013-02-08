@@ -13,13 +13,25 @@
 </div>
 <!-- Target Column Totals -->
 <div class="row-fluid target-column-totals">
-  <div class="span1 average" ng-repeat="average in targetVolumeAverages">{{ average }}</div>
+  <div class="span1 difference" ng-repeat="difference in targetVolumeDifference">
+    <p class="column">{{ difference[0].column }}</p>
+    <p class="average {{ difference[0].difference | color }}">{{ difference[0].average }}&#37;</p>
+    <p class="diff">
+      <span class="mark-{{ difference[0].difference | mark }}"</span> 
+      {{ difference[0].difference | negative }}&#37; 
+      {{ difference[0].difference | relative }} target
+    </p>
+  </div>
 </div>
 <!-- Actual Column Totals -->
 <div class="row-fluid actual-column-totals">
-  <div class="span1 average" ng-repeat="average in actualVolumeAverages">{{ average }}</div>
+  <div class="span1 difference" ng-repeat="difference in actualVolumeDifference">
+    <p class="column">{{ difference[0].column }}</p>
+    <p class="average {{ difference[0].difference | color }}">{{ difference[0].average }}&#37;</p>
+    <p class="diff">
+      <span class="mark-{{ difference[0].difference | mark }}"</span> 
+      {{ difference[0].difference | negative }}&#37; 
+      {{ difference[0].difference | relative }} target
+    </p>
+  </div>
 </div>
-
-<!-- <p>hello</p> -->
-
-<!-- <p ng-model="capacityData">{{ capacityData }}</p> -->

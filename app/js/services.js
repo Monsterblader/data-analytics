@@ -15,21 +15,21 @@ var months = {
   ,'12': 'Dec'
 };
 
-var zone = function(difference){
-  var zone;
-  switch (true){
-    case (difference < -5):
-      zone = 'red';
-      break;
-    case (difference < 0):
-      zone = 'yellow';
-      break;
-    default:
-      zone = 'green';
-      break;
-  }
-  return zone;
-};
+// var zone = function(difference){
+//   var zone;
+//   switch (true){
+//     case (difference < -5):
+//       zone = 'red';
+//       break;
+//     case (difference < 0):
+//       zone = 'yellow';
+//       break;
+//     default:
+//       zone = 'green';
+//       break;
+//   }
+//   return zone;
+// };
 
 /* Services */
 
@@ -76,15 +76,9 @@ capacityModule.factory('getVolumeDifference', function(){
       var difference = Number( (differencePercentage - average).toFixed(1) );
       averages[index][0]["average"] = average;
       averages[index][0]["difference"] = difference;
-      averages[index][0]["zone"] = zone(difference);
+      // averages[index][0]["zone"] = zone(difference);
     });
-    // var averages = _.map(columns, function(column){
-    //   var sum = _.reduce(column, function(memo, num){
-    //     return memo + num;
-    //   }, 0);
-    //   return Number( (sum / noOfRows).toFixed(1) );
-    // });
-    console.log(averages);
+    // console.log(averages);
     return averages;
   };
 });

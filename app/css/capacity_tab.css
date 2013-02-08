@@ -20,6 +20,47 @@
   margin: 7px 10px;
 }
 
-.row .average {
+.row .difference {
   display: inline;
+}
+
+/* Column Totals Styles */
+
+.target-column-totals, .actual-column-totals {
+  margin-left: 15px;
+}
+
+.span1.difference {
+  width: 12%!important;
+}
+
+.column {
+  color: blue;
+}
+
+.average.green {
+  color: green;
+}
+
+.average.yellow {
+  color: yellow;
+}
+
+.average.red {
+  color: red;
+}
+
+.mark-tick:before {
+  content: "\2713";
+  color: green;
+}
+
+.mark-exclamation:before {
+  content: "\0021";
+  color: yellow;
+}
+
+.mark-cross:before {
+  content: "\00D7";
+  color: red;
 }

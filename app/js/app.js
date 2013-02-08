@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('McApp', ['McApp.capacityServices'])
+angular.module('McApp', ['McApp.capacityServices', 'McApp.filters'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/home', {templateUrl: 'partials/home.html', controller: HomeCtrl})
