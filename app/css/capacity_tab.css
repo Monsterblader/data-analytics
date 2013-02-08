@@ -40,32 +40,45 @@
   border-bottom: solid 2px lightgray;
 }
 
+.average {
+  font-size: 2em;
+  font-weight: 300;
+}
+
 .average.green {
   color: green;
 }
 
 .average.yellow {
-  color: yellow;
+  color: gold;
 }
 
 .average.red {
   color: red;
 }
 
+.diff {
+  font-size: 0.9em;
+}
+
 .mark-tick:before {
   content: "\2713";
   color: green;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
 .mark-exclamation:before {
   content: "\0021";
-  color: yellow;
+  color: gold;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
 .mark-cross:before {
   content: "\00D7";
   color: red;
+  font-size: 1.5em;
   font-weight: bold;
+  vertical-align: top;
 }

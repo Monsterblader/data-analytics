@@ -77,6 +77,8 @@ capacityModule.factory('getVolumeDifference', function(){
       averages[index][0]["average"] = average;
       averages[index][0]["difference"] = difference;
     });
+    // Move the total column to index 0
+    averages.unshift( averages.pop() );
     // console.log(averages);
     return averages;
   };
