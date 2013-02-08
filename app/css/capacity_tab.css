@@ -27,15 +27,17 @@
 /* Column Totals Styles */
 
 .target-column-totals, .actual-column-totals {
-  margin-left: 15px;
+  margin: 15px 0 0 15px;
 }
 
 .span1.difference {
-  width: 12%!important;
+  width: 10%!important;
+  margin-right: 30px;
 }
 
 .column {
-  color: blue;
+  color: #349EEB;
+  border-bottom: solid 2px lightgray;
 }
 
 .average.green {
@@ -53,14 +55,17 @@
 .mark-tick:before {
   content: "\2713";
   color: green;
+  font-weight: bold;
 }
 
 .mark-exclamation:before {
   content: "\0021";
   color: yellow;
+  font-weight: bold;
 }
 
 .mark-cross:before {
   content: "\00D7";
   color: red;
+  font-weight: bold;
 }

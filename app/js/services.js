@@ -76,7 +76,6 @@ capacityModule.factory('getVolumeDifference', function(){
       var difference = Number( (differencePercentage - average).toFixed(1) );
       averages[index][0]["average"] = average;
       averages[index][0]["difference"] = difference;
-      // averages[index][0]["zone"] = zone(difference);
     });
     // console.log(averages);
     return averages;
