@@ -31,17 +31,64 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
     // Create chart
     var volumeChart = new Highcharts.Chart({
       chart: {
-        // renderTo: $targetChartContainer,
         renderTo: 'target-volume',
         type: 'line',
-        width: 4000
+        width: 4000,
+        marginTop: 100,
+        marginBottom: 50
+      },
+      credits: {
+        enabled: false
+      },
+      title: {
+        text: ''
       },
       xAxis: {
-        categories: targetXAxis
+        categories: targetXAxis,
+      },
+      yAxis: {
+        plotLines: [{
+          value: 70,
+          color: '#008000',
+          width: 2,
+          zIndex: 4,
+          label: {
+            text: 'Target (70%)',
+            style: {
+              color: '#349EEB',
+              fontWeight: 'bold'
+            }
+          }
+        }],
+        title: ''
       },
       series: [{
-        data: targetTotalColumnData
-      }]
+        data: targetTotalColumnData,
+        showInLegend: false
+      }],
+      tooltip: {
+        formatter: function(){
+          return this.x + '<br />Target Volume Total: '+ this.y +'%';
+        }
+      },
+      plotOptions: {
+        series: {
+          color: '#D3D3D3',
+          marker: {
+            fillColor: '#FFD700',
+            lineWidth: 2,
+            lineColor: '#FFD700',
+            radius: 6
+          },
+          dataLabels: {
+            enabled: true,
+            y: -15,
+            style: {
+              fontWeight: 'bold'
+            }
+          }
+        }
+      }
     });
   }).error(function(data, status, headers, config){
     console.log(data, status, headers, config);

@@ -15,22 +15,6 @@ var months = {
   ,'12': 'Dec'
 };
 
-// var zone = function(difference){
-//   var zone;
-//   switch (true){
-//     case (difference < -5):
-//       zone = 'red';
-//       break;
-//     case (difference < 0):
-//       zone = 'yellow';
-//       break;
-//     default:
-//       zone = 'green';
-//       break;
-//   }
-//   return zone;
-// };
-
 /* Services */
 
 var capacityModule = angular.module('McApp.capacityServices', []);
@@ -73,7 +57,7 @@ capacityModule.factory('getVolumeDifference', function(){
         return memo + num;
       }, 0);
       var average = Number( (sum / noOfRows).toFixed(1) );
-      var difference = Number( (differencePercentage - average).toFixed(1) );
+      var difference = Number( (average - differencePercentage).toFixed(1) );
       averages[index][0]["average"] = average;
       averages[index][0]["difference"] = difference;
     });
@@ -91,6 +75,9 @@ capacityModule.factory('getXAxis', function(){
       var info = row[0].slice(0, 3).reverse();
       return ('0' + info[0]).slice(-2) + ' ' + months['' + info[1]] + ', ' + ('' + info[2]).slice(-2);
     });
+    // Edit last date to be 'current week'
+    dates.pop();
+    dates.push('Current<br />Week');
     return dates;
   };
 });
