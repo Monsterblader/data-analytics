@@ -1,11 +1,19 @@
 /* app css stylesheet */
 
+html{
+  overflow: hidden;
+}
+
+html,body,.row-fluid,.container-fluid, .span1, .sidebar-nav{
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  margin-top: 40px;
 }
 .sidebar-nav {
   padding: 9px 0;
+  background: -webkit-linear-gradient(left, rgba(38,38,38,0.85) 0%,rgba(27,27,27,1) 100%);
 }
 .menu {
   list-style: none;
@@ -43,14 +51,15 @@ body {
 }
 
 .navbar-inner{
+  border:none;
   background-image: -webkit-gradient(linear,0 0,0 100%,from(#349EEB),to(#2C82C0));
 }
 
-.container-fluid{
+.container-fluid.nospace{
   padding: 0;
 }
 
-.row-fluid [class*="span"]{
+.row-fluid.nospace > [class*="span"]{
   margin-left: 0px;
 }
 
@@ -59,12 +68,61 @@ body {
   color: white;
   float: right;
   margin-top: 7px;
+  margin-right: 15px;
 }
 
+ul.nav.nav-list [class^="icon-"]::before,
+ul.nav.nav-list [class*=" icon-"]::before {
+  background: -webkit-linear-gradient(top, rgba(148,148,148,1) 0%,rgba(76,76,76,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial; /* reset Font Awesome's display:inline-block */
+}
 .span1{
   width: 7%!important;
 }
 
+.views{
+  margin-top:20px;
+}
+
 .span11{
   width: 93%!important;
+  background-color: #F6F6F6;
+}
+
+ul.nav.nav-list li{
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+.dashBoardBox{
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px grey;
+  height: 150px;
+  margin-right: 2%;
+  margin-left: 0!important;
+}
+
+.dashBoardBox:nth-child(n+3){
+  margin-top: 1.5%;
+}
+
+.row-fluid .span6{
+  width:48%;
+}
+
+.footer-scroll{
+  height: 110px;
+  margin-right: 20px;
+  background: -webkit-linear-gradient(top, rgba(221,221,221,1) 0%,rgba(203,203,203,1) 100%);
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.footerlabel{
+  text-align: center;
+  margin-top: 44px;
+  font-size: 23px;
+  color: grey;
 }
