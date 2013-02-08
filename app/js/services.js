@@ -89,7 +89,7 @@ capacityModule.factory('getXAxis', function(){
     var values = data.Target.values;
     var dates = _.map(values, function(row){
       var info = row[0].slice(0, 3).reverse();
-      return ('0' + info[0]).slice(-2) + ' ' + months['' + info[1]] + ' ' + ('' + info[2]).slice(-2);
+      return ('0' + info[0]).slice(-2) + ' ' + months['' + info[1]] + ', ' + ('' + info[2]).slice(-2);
     });
     return dates;
   };

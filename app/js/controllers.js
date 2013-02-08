@@ -34,7 +34,7 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
         // renderTo: $targetChartContainer,
         renderTo: 'target-volume',
         type: 'line',
-        width: 1000
+        width: 4000
       },
       xAxis: {
         categories: targetXAxis
