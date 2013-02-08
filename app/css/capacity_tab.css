@@ -5,7 +5,17 @@
 }
 
 .span5.target-volume {
-  margin-left: 15px !important;
+  margin-left: 30px !important;
+}
+
+.span5.target-volume, .span5.actual-volume {
+  margin-top: 60px;
+  -webkit-box-shadow: 8px 0px 1px -6px #CFCFCF;
+  -moz-box-shadow:    8px 0px 1px -6px #CFCFCF;
+  box-shadow:         8px 0px 1px -6px #CFCFCF;
+  -moz-border-radius:    0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  border-radius:         10px 10px 0px 0px;
 }
 /*
 .actual-volume {
@@ -16,6 +26,7 @@
 
 .blue-bar {
   background-image: -webkit-gradient(linear,0 0,0 100%,from(#349EEB),to(#2C82C0));
+  margin-bottom: 20px;
 }
 
 .blue-bar-text {

@@ -80,6 +80,7 @@ ul.nav.nav-list [class*=" icon-"]::before {
 
 .span11{
   width: 93%!important;
+  background-color: #F6F6F6;
 }
 
 ul.nav.nav-list li{
