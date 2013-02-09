@@ -30,8 +30,9 @@ function OperationsCtrl() {
 // OperationsCtrl.$inject = [];
 
 function HeadCountCtrl($scope) {
-  $scope.imgLeft = "l1";
-  $scope.imgRight = "r1";
+  $scope.numTypeProp = "typePerc";
+  variancePerc();
+  grOp();
   $scope.BUBreakdown = [[{value: 0}, {value: 1}, {value: 2}],
                        [{value: 0}, {value: 1}, {value: 2}],
                        [{value: 0}, {value: 1}, {value: 2}],
@@ -47,8 +48,26 @@ function HeadCountCtrl($scope) {
                        [{value: 0}, {value: 1}, {value: 2}],
                         [{value: "a"}, {value: "b"}, {value: "c"}]];
   $scope.change = function (){
-    if ($scope.numTypeProp==="typePerc") { $scope.imgLeft = "container2"; imgLeft(); $scope.imgRight = "Brouhaha" }
-      else {$scope.imgLeft = "Brouhaha"; $scope.imgRight = "Moohaha" };
+    if ($scope.numTypeProp === "typePerc") {
+      // $scope.imgLeft = "containerLeft";
+      variancePerc();
+      // var heatTable = '<ul>\n<ul ng-repeat="subArray in BUBreakdown">\n<span class="horBox" ng-repeat="variance in subArray">{{variance.value}}</span>\n</ul>\n</ul>';
+      // $(".container-fluid .span9").append(heatTable);
+    } else {
+    };
+  }
+  $scope.GOClick = function (){
+    $(".GOclass").css("visibility", "visible");
+    $(".BUBclass").css("visibility", "hidden");
+    $("#containerRight").attr("class", "");
+    $(".heatTable").attr("class", "hide heatTable");
+  };
+  $scope.BUBClick = function (){
+    $(".GOclass").css("visibility", "hidden");
+    $(".BUBclass").css("visibility", "visible");
+    $("#containerRight").attr("class", "hide");
+    $(".heatTable").attr("class", "heatTable");
+    grOp();
   }
 }
 // HeadCountCtrl.$inject = [];

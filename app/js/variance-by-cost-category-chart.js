@@ -1,11 +1,11 @@
-var imgLeft = function () {
+var variancePerc = function () {
     var chart,
         categories = ['Total', 'GL8', 'GL7', 'GL6', 'GL5',
             'GL4', 'GL3', 'GL2', 'GL1'];
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'container2',
+                renderTo: 'containerLeft',
                 type: 'bar'
             },
             title: {
