@@ -115,7 +115,7 @@
 
 .span1.difference {
   width: 10%!important;
-  margin-right: 5px;
+  /*margin-right: 0px;*/
 }
 
 .column {
