@@ -84,10 +84,27 @@ capacityModule.factory('getXAxis', function(){
 
 capacityModule.factory('getTotalColumnData', function(){
   return function(data, dataset){
+    // Function to calculate color based on difference
+    function calcColor(num){
+      if ((num - 85) < -5) {
+        return '#FF0000';
+      } else if ((num - 85) < 0) {
+        return '#FFD700';
+      } else {
+        return '#008000';
+      }
+    }
+
     var values = (dataset === 'target') ? data.Target.values : data.Actual.values;
     var total = _.map(values, function(row){
-      return Number( row[8].toFixed(1) );
+      if (dataset === 'target') {
+        return Number( row[8].toFixed(1) );
+      } else {
+        var yValue = Number( row[8].toFixed(1) );
+        return { y:  yValue, color: calcColor(yValue) };
+      }
     });
+    console.log(total);
     return total;
   };
 });

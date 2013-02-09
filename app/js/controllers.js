@@ -28,7 +28,7 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
     var targetTotalColumnData = getTotalColumnData($scope.capacityData, 'target');
     var actualTotalColumnData = getTotalColumnData($scope.capacityData, 'actual');
 
-    // Create chart
+    // Create volume chart
     var volumeChart = new Highcharts.Chart({
       chart: {
         renderTo: 'target-volume',
@@ -44,7 +44,7 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
         text: ''
       },
       xAxis: {
-        categories: targetXAxis,
+        categories: targetXAxis
       },
       yAxis: {
         plotLines: [{
@@ -86,6 +86,50 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
             style: {
               fontWeight: 'bold'
             }
+          }
+        }
+      }
+    });
+    // Create actual chart
+    var actualChart = new Highcharts.Chart({
+      chart: {
+        renderTo: 'actual-volume',
+        type: 'column',
+        width: 4000,
+        marginTop: 100,
+        marginBottom: 50
+      },
+      credits: {
+        enabled: false
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        categories: targetXAxis
+      },
+      yAxis: {
+        title: ''
+      },
+      series: [{
+        data: actualTotalColumnData,
+        showInLegend: false
+      }],
+      tooltip: {
+        formatter: function(){
+          return this.x + '<br />Target Volume Total: '+ this.y +'%';
+        }
+      },
+      plotOptions: {
+        series: {
+          dataLabels: {
+            enabled: true,
+            y: -15,
+            style: {
+              fontWeight: 'bold'
+            }
+          },
+          marker: {
           }
         }
       }
