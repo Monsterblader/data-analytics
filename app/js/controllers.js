@@ -59,15 +59,15 @@ function HeadCountCtrl($scope) {
   $scope.GOClick = function (){
     $(".GOclass").css("visibility", "visible");
     $(".BUBclass").css("visibility", "hidden");
-    $("#containerRight").attr("class", "");
+    // $("#containerRight").attr("class", "");
     $(".heatTable").attr("class", "hide heatTable");
+    grOp();
   };
   $scope.BUBClick = function (){
     $(".GOclass").css("visibility", "hidden");
     $(".BUBclass").css("visibility", "visible");
-    $("#containerRight").attr("class", "hide");
+    // $("#containerRight").attr("class", "hide");
     $(".heatTable").attr("class", "heatTable");
-    grOp();
   }
 }
 // HeadCountCtrl.$inject = [];
