@@ -92,7 +92,7 @@ function ColleaguesCtrl() {
       });
       scatterChart = new Highcharts.Chart({
       chart: {
-        renderTo: 'scatter-colleagues',
+        renderTo: 'scatterchart-colleagues',
         type: 'scatter',
         zoomType: 'xy'
       },
