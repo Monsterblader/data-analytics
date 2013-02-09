@@ -166,6 +166,16 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
   }).error(function(data, status, headers, config){
     console.log(data, status, headers, config);
   });
+
+  $scope.$on('$viewContentLoaded', function(){
+    $('#target-volume').on('scroll', function () {
+      $('#actual-volume').scrollLeft($(this).scrollLeft());
+    });
+
+    $('#actual-volume').on('scroll', function () {
+      $('#target-volume').scrollLeft($(this).scrollLeft());
+    });
+  });
 }
 // CapacityCtrl.$inject = ['$scope', '$http'];
 
