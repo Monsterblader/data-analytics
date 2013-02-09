@@ -1,57 +1,7 @@
-<!doctype html>
-<html>
-	<head>
-		<title>Colleagues</title>
-		<script src="../lib/jquery-1.9.1.min.js"></script>
-		<script src="../lib/highcharts.js" type="text/javascript"></script>
-	</head>
-	<body>
-		<div id="stackbar-colleagues" style="min-width: 400px; height: 400px; margin: 0 auto">
+<div ng-controller="ColleaguesCtrl" id="stackbar-colleagues" style="max-width: 500px; min-width: 400px; height: 400px; margin: 0 auto">
 
-		</div>
-	</body>
-	<script type="text/javascript">
-		$(function () {
-    var chart;
-    $(document).ready(function() {
-      chart = new Highcharts.Chart({
-        chart: {
-          renderTo: 'stackbar-colleagues',
-          type: 'bar'
-        },
-        title: {
-          text: 'Colleagues'
-        },
-        xAxis: {
-          categories: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7']
-        },
-        legend: {
-          backgroundColor: '#FFFFFF',
-          reversed: true
-        },
-        tooltip: {
-          formatter: function() {
-            return ''+ this.series.name +': '+ this.y +'%';
-          }
-        },
-        plotOptions: {
-          series: {
-            stacking: 'normal'
-          }
-        },
-        series: [{
-	        name: 'Agree',
-	        data: [57, 43, 30, 73, 54, 79, 29]
-        }, {
-          name: 'Disagree',
-          data: [39, 45, 32, 18, 41, 7, 29]
-        }, {
-          name: 'Neutral',
-          data: [4, 12, 38, 9, 5, 14, 42]
-        }]
-      });
-    });
-    
-});
-	</script>
-</html>
+</div>
+
+<div ng-controller="ColleaguesCtrl" id="scatter-colleagues" style="max-width: 500px; min-width: 400px; height: 400px; margin: 0 auto">
+
+</div>
