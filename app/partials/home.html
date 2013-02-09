@@ -80,7 +80,7 @@
       <div class="span6 dashBoardBox" ng-repeat="box in boxes">
         <div class="row-fluid">
           <div class="span9">
-            <h3><i class="icon-{{box.icon}} bigicon"></i>{{box.header}}</h3>
+            <h3><i class="icon-{{box.icon}} bigicon grayIcon"></i>{{box.header}}</h3>
           </div>
           <div class="span3">
             <i class="icon-{{box.alert}} pull-right"></i>
@@ -97,13 +97,15 @@
 
 
     <div class="row-fluid">
-      <div class="footer-scroll span12">
+      <div class="footer-scroll span12" style="width:98.2%">
         <div class="span3 footerlabel">
           Document Explorer
         </div>
-        <div class="span9">
-          <div class="footerDoc span3 pull-left" ng-repeat="doc in documents">
-            {{doc.title}}
+        <div class="span9" style="overflow-y:scroll;">
+          <div class="scrollWrap" style="width:250%;">
+            <div class="footerDoc pull-left" ng-repeat="doc in documents">
+              {{doc.title}}
+            </div>
           </div>
         </div>
       </div>
