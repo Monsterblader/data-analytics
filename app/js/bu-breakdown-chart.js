@@ -1,4 +1,4 @@
-$(function () {
+var grOp = function () {
     var chart;
     $(document).ready(function() {
         chart = new Highcharts.Chart({
@@ -80,4 +80,4 @@ $(function () {
         });
     });
 
-});
+};

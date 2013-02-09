@@ -1,4 +1,4 @@
-$(function () {
+var imgLeft = function () {
     var chart,
         categories = ['Total', 'GL8', 'GL7', 'GL6', 'GL5',
             'GL4', 'GL3', 'GL2', 'GL1'];
@@ -86,4 +86,4 @@ $(function () {
         });
     });
 
-});
+};

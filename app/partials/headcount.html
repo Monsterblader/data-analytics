@@ -2,6 +2,7 @@
 // TODO highlight and set eye for active View (Group Operations/BU Breakdown).
 // TODO set up functionality of View buttons.
 // TODO set up functionality of Percentage/absolute button.-->
+<script src="js/variance-by-cost-category-chart.js"></script>
 
 <div class="container-fluid" ng-controller="HeadCountCtrl">
 	<div class="row-fluid">
@@ -9,7 +10,7 @@
 			<p><h3>Expected Variance from Target</h3></p>
 			View
 			<div class="btn-group">
-			  <select class="btn dropdown-toggle" name="test" ng-change="change()" ng-model="numTypeProp"><!-- class="btn dropdown-toggle hcView" href="#" data-toggle="dropdown" -->
+			  <select name="test" ng-change="change()" ng-model="numTypeProp"><!-- class="btn dropdown-toggle hcView" href="#" data-toggle="dropdown" -->
 			    <option value="typePerc">Percentage</option>
 			    <option value="typeAbs">Absolute</option>
 			  </select>
@@ -55,10 +56,16 @@
 	</div>
 	<div class="row-fluid">
 		<div class="container-fluid span3">
+			<div id="container2"></div>
 			<img class="hcLeftImg" src="">{{imgLeft}}<!-- {{headCountData | showChart }} -->
 		</div>
 		<div class="container-fluid span9">
-			<img class="hcRightImg" src="">{{imgRight}}
+			<div id="hcRightImg"></div>
+			<ul>
+				<ul ng-repeat="subArray in BUBreakdown">
+					<span class="horBox" ng-repeat="variance in subArray">{{variance.value}}</span>
+				</ul>
+			</ul>
 		</div>
 	</div>
 </div>
