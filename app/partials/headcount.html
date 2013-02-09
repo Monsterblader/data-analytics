@@ -10,7 +10,7 @@
 			<p><h3>Expected Variance from Target</h3></p>
 			View
 			<div class="btn-group">
-			  <select name="test" ng-change="change()" ng-model="numTypeProp"><!-- class="btn dropdown-toggle hcView" href="#" data-toggle="dropdown" -->
+			  <select class="varPer" ng-change="change()" ng-model="numTypeProp"><!-- class="btn dropdown-toggle hcView" href="#" data-toggle="dropdown" -->
 			    <option value="typePerc">Percentage</option>
 			    <option value="typeAbs">Absolute</option>
 			  </select>
@@ -22,33 +22,19 @@
 			</div>
 		</div>
 		<div class="container-fluid span9">
-			<div class="float-left span2 summary">
+			<div class="float-left span2 summary" ng-repeat="block in headerarray">
 				<br>
-				<b>Actual</b><br>
-				Current<hr>
-				<h2 class="greenish">18,220</h2><br>
-				<i class="icon-arrow-down greenish"></i>112 from prior week
-			</div>
-			<div class="float-left span2 summary">
-				<br>
-				<b>Projection</b><br>
-				End monthandyear<hr>
-				<h2 class="greenish">18,404</h2><br>
-				<i class="icon-ok greenish"></i>411 below target
-			</div>
-			<div class="float-left span2 summary">
-				<br>
-				<b>Projection</b><br>
-				End monthandyear<hr>
-				<h2 class="greenish">16,887</h2><br>
-				<i class="icon-ok greenish"></i>453 below target
+				<b>{{block.title}}</b>
+				<br>{{block.subTitle}}<hr>
+				<h2 class="greenish">{{block.value}}</h2><br>
+				<i class="{{block.icon}} greenish"></i>{{block.delta}}
 			</div>
 			<div class="float-left span2 summary">
 				<br>View
 				<div class="btn-group btn-group-vertical">
-					<button class="btn groupOps rightBtnGrp" ng-click="GOClick()">Group Operations
+					<button class="btn groupOps rightBtnGrp active" ng-click="GOClick()">Group Operations
 						<i class="GOclass icon-eye-open"></i></button>
-				  <button class="btn BUBreakdown rightBtnGrp" ng-click="BUBClick()">BU Breakdown
+				  <button class="btn BUBr rightBtnGrp" ng-click="BUBClick()">BU Breakdown
 				  	<i class="BUBclass icon-eye-open"></i></button>
 				</div>
 			</div>
@@ -59,12 +45,15 @@
 			<div id="containerLeft"></div>
 		</div>
 		<div class="container-fluid span9">
+			<table class="heatTable BUBclass">
+				<tr>
+					<td ng-repeat="name in heatMapHead">{{name}}</td>
+				</tr>
+				<tr ng-repeat="subArray in BUBreakdown">
+					<td class="horBox" ng-repeat="variance in subArray" style="background-color: {{variance.color}}">{{variance.value}}<br>{{variance.sub}}</td>
+				</tr>
+			</table>
 			<div id="containerRight" class="GOclass"></div>
-			<ul class="heatTable BUBclass">
-				<ul ng-repeat="subArray in BUBreakdown">
-					<span class="horBox" ng-repeat="variance in subArray">{{variance.value}}</span>
-				</ul>
-			</ul>
 		</div>
 	</div>
 </div>

@@ -6,9 +6,22 @@
 	color: green;
 }
 
+.heatTable {
+  border-collapse: separate;
+  border-spacing: 3px;
+}
+
 .horBox {
   color: white;
-  background-color: green;
+  width: 60px;
+  padding: 10px;
+  text-align: center;
+  border-width: 2px;
+  border-color: white;
+}
+
+.varPer {
+  width: 150px;
 }
 
 #container2 {
@@ -33,9 +46,7 @@
 }
 
 .GOclass {
-  visibility: visible;
 }
 
 .BUBclass {
-  visibility: hidden;
 }

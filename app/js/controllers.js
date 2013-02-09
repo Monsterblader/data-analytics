@@ -31,44 +31,59 @@ function OperationsCtrl() {
 
 function HeadCountCtrl($scope) {
   $scope.numTypeProp = "typePerc";
+  $(".BUBclass").hide();
   variancePerc();
   grOp();
-  $scope.BUBreakdown = [[{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                       [{value: 0}, {value: 1}, {value: 2}],
-                        [{value: "a"}, {value: "b"}, {value: "c"}]];
+  $scope.heatMapHead = ["Asia Minor", "SuperCard", "Western", "Africa", "Banking", "Corporate", "Wealth", "Head"];
+  var heatMapRaw = [[{value: 0, sub: "abc"}, {value: 1}, {value: 2}],
+                    [{value: 0}, {value: 1}, {value: 2}],
+                    [{value: 35}, {value: 1}, {value: 2}],
+                    [{value: 0}, {value: 1}, {value: 2}],
+                    [{value: 0}, {value: 1}, {value: 2}],
+                    [{value: 0}, {value: 1}, {value: 2}],
+                    [{value: 0}, {value: 1}, {value: 2}],
+                    [{value: 0}, {value: 1}, {value: 2}],
+                    [{value: "a"}, {value: "b"}, {value: "c"}]];
+  heatMapRaw.forEach(function(subArray, key, origArray){
+    subArray.forEach(function(val, key, subArr){
+      if (val.value < 1) {
+        subArr[key].color = "green";
+      } else if (val.value < 6) {
+        subArr[key].color = "yellow";
+      } else {
+        subArr[key].color = "red";
+      }
+    });
+  });
+  $scope.BUBreakdown = heatMapRaw;
+  $scope.headerarray = [{title: "Actual", subTitle: "Current", value: "18,220", icon: "icon-arrow-down", delta: "112 from prior week"},
+                   {title: "Projection", subTitle: "End MandY", value: "18,404", icon: "icon-ok", delta: "411 below target"},
+                   {title: "Projection", subTitle: "End MandY", value: "16,887", icon: "icon-ok", delta: "453 below target"}];
+
   $scope.change = function (){
     if ($scope.numTypeProp === "typePerc") {
-      // $scope.imgLeft = "containerLeft";
       variancePerc();
-      // var heatTable = '<ul>\n<ul ng-repeat="subArray in BUBreakdown">\n<span class="horBox" ng-repeat="variance in subArray">{{variance.value}}</span>\n</ul>\n</ul>';
-      // $(".container-fluid .span9").append(heatTable);
     } else {
-    };
-  }
+    }
+  };
+
   $scope.GOClick = function (){
-    $(".GOclass").css("visibility", "visible");
-    $(".BUBclass").css("visibility", "hidden");
+    $(".groupOps").attr("class", "btn groupOps rightBtnGrp active");
+    $(".BUBreakdown").attr("class", "btn BUBreakdown rightBtnGrp");
+    $(".GOclass").show();
+    $(".BUBclass").hide();
     // $("#containerRight").attr("class", "");
-    $(".heatTable").attr("class", "hide heatTable");
+    $(".heatTable").hide();
     grOp();
   };
   $scope.BUBClick = function (){
-    $(".GOclass").css("visibility", "hidden");
-    $(".BUBclass").css("visibility", "visible");
+    $(".groupOps").attr("class", "btn groupOps rightBtnGrp");
+    $(".BUBreakdown").attr("class", "btn BUBreakdown rightBtnGrp active");
+    $(".GOclass").hide();
+    $(".BUBclass").show();
     // $("#containerRight").attr("class", "hide");
-    $(".heatTable").attr("class", "heatTable");
-  }
+    $(".heatTable").show();
+  };
 }
 // HeadCountCtrl.$inject = [];
 
