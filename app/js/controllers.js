@@ -22,6 +22,17 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
     $scope.actualVolumeDifference = getVolumeDifference($scope.capacityData, 'actual');
     // console.log($scope.capacityData);
 
+    // Set the active graph
+    $scope.activeGraph = 'target';
+    // Function to change the activeGraph
+    $scope.changeActiveGraph = function(){
+      if (this.activeGraph === 'target') {
+        $scope.activeGraph = 'actual';
+      } else {
+        $scope.activeGraph = 'target';
+      }
+    };
+
     // Extract axis, which is the same for 'Target' and 'Actual'
     var targetXAxis = getXAxis($scope.capacityData);
     // Extract data
@@ -129,8 +140,8 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
               fontWeight: 'bold'
             }
           },
-          marker: {
-          }
+          borderColor: null,
+          borderWidth: 0
         }
       }
     });

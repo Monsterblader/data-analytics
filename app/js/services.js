@@ -104,7 +104,7 @@ capacityModule.factory('getTotalColumnData', function(){
         return { y:  yValue, color: calcColor(yValue) };
       }
     });
-    console.log(total);
+    // console.log(total);
     return total;
   };
 });

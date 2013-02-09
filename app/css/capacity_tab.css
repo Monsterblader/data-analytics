@@ -62,8 +62,12 @@
   cursor: pointer;
 }
 
-.icon-eye-open.actual, .icon-eye-close.actual {
-  margin: 68px 0 0 500px;
+.actual.icon-eye-open, .actual.icon-eye-close {
+  margin: 68px 0 0 1070px;
+}
+
+.icon-eye-open {
+  pointer-events: none;
 }
 
 /*

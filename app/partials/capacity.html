@@ -3,16 +3,18 @@
   <!-- Target Volume chart -->
   <div class="chart-title">
     <p class="volume-chart-title-text">Target Volume</p>
-    <p class="icon-eye-open volume"></p>
+    <p ng-class="{ target: 'icon-eye-open', actual: 'icon-eye-close'}[activeGraph]" class="volume"
+       ng-click="changeActiveGraph()"></p>
   </div>
   <div class="span5 target-volume" id="target-volume">
   </div>
   <!-- Actual Volume chart -->
   <div class="chart-title">
     <p class="actual-chart-title-text">Actual Volume</p>
-    <p class="icon-eye-close actual eye-button"></p>
+    <p ng-class="{ target: 'icon-eye-close', actual: 'icon-eye-open'}[activeGraph]" class="actual"
+       ng-click="changeActiveGraph()"></p>
   </div>
-  <div class="span5 offset1 actual-volume" id="actual-volume"></div>
+  <div class="span5 offset1 actual-volume " id="actual-volume"></div>
 </div>
 <!-- Blue bar -->
 <div class="row-fluid">
