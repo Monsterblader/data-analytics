@@ -4,7 +4,7 @@ html{
   overflow: hidden;
 }
 
-html,body,.row-fluid,.container-fluid, .span1, .sidebar-nav{
+html,body,.row-fluid.tall,.container-fluid, .span1,.span11, .sidebar-nav{
   height: 100%;
   font-family: 'Open Sans', sans-serif;
 }
@@ -72,7 +72,7 @@ body {
 }
 
 ul.nav.nav-list [class^="icon-"]::before,
-ul.nav.nav-list [class*=" icon-"]::before {
+ul.nav.nav-list [class*=" icon-"]::before, .grayIcon::before {
   background: -webkit-linear-gradient(top, rgba(148,148,148,1) 0%,rgba(76,76,76,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -88,7 +88,7 @@ ul.nav.nav-list [class*=" icon-"]::before {
 
 .span11{
   width: 93%!important;
-  background-color: #F6F6F6;
+  background-color: #F7F7F7;
 }
 
 ul.nav.nav-list li{
@@ -97,9 +97,10 @@ ul.nav.nav-list li{
 }
 
 .dashBoardBox{
+  background: white;
   border-radius: 5px;
-  box-shadow: 2px 2px 5px grey;
-  height: 150px;
+  box-shadow: 2px 2px 3px rgba(84,84,84,0.3);
+  height: 160px;
   margin-right: 2%;
   margin-left: 0!important;
 }
@@ -113,16 +114,98 @@ ul.nav.nav-list li{
 }
 
 .footer-scroll{
-  height: 110px;
+  height: 70px;
   margin-right: 20px;
   background: -webkit-linear-gradient(top, rgba(221,221,221,1) 0%,rgba(203,203,203,1) 100%);
   border-radius: 10px;
   margin-top: 25px;
 }
 
+.footer-scroll > .span9{
+  box-shadow: inset -11px 0px 37px -17px rgba(1, 1, 1, 0.5), inset 25px 0px 37px -27px rgba(1,1,1,0.5);
+  padding-left: 5px;
+  padding-right: 15px;
+  height: 100%;
+  border-radius: 7px;
+}
+
 .footerlabel{
   text-align: center;
-  margin-top: 44px;
-  font-size: 23px;
+  margin-top: 24px;
+  font-size: 18px;
   color: grey;
 }
+.footer-scroll .span12{
+  overflow-x: scroll;
+  max-height: 60px;
+  width: 150%;
+}
+
+.dashBoardBox i.bigicon{
+  margin-right: 15px;
+  color: #8A8A8A;
+  font-size: 50px;
+}
+
+.dashBoardBox h2,h3{
+  color: #2269A6;
+  font-size: 21px;
+}
+
+.dashBoardBox .row-fluid [class*="span"]{
+  padding:  10px;
+}
+
+.dashBoardBox i.icon-check, .dashBoardBox i.icon-exclamation-sign{
+  float: right;
+  font-size: 70px;
+  padding-right: 1%;
+}
+
+i.icon-exclamation-sign::before {
+  background: -webkit-linear-gradient(top, rgba(253,223,41,1) 0%,rgba(241,152,39,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial; /* reset Font Awesome's display:inline-block */
+}
+i.icon-check::before {
+  background: -webkit-linear-gradient(top, rgba(83,198,101,1) 0%,rgba(58,138,60,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial; /* reset Font Awesome's display:inline-block */
+}
+
+.sidebarright.row-fluid > p{
+  font-size: 23px;
+  color: #294673;
+}
+
+.sidebarright.row-fluid .picture{
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 1px 2px 3px rgba(100,100,100,0.5);
+  cursor: pointer;
+}
+.sidebarright .span12{
+  margin-bottom: 20px;
+}
+  
+.footerDoc{
+  color: #4995BF;
+  padding-top: 1%;
+  text-align: center;
+  width: 200px;
+  font-size: 13px;
+  background: -webkit-linear-gradient(top, #FEFEFE 0%,#D4D4D4 100%);
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 12px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.span9::-webkit-scrollbar { 
+    display: none; 
+}
+
