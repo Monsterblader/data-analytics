@@ -70,6 +70,10 @@
   pointer-events: none;
 }
 
+.gray-out {
+  opacity: 0.3;
+}
+
 /*
 .actual-volume {
   overflow-x: scroll;
@@ -80,6 +84,17 @@
 .blue-bar {
   background-image: -webkit-gradient(linear,0 0,0 100%,from(#349EEB),to(#2C82C0));
   margin-bottom: 20px;
+}
+
+.arrow-up {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left:   20px solid transparent;
+  border-right:  20px solid transparent;
+  border-bottom: 20px solid #349EEB;
+  /*border-bottom: 20px solid red;*/
+  margin-top: -15px;
 }
 
 .blue-bar-text {
@@ -93,6 +108,10 @@
 }
 
 /* Column Totals Styles */
+
+.show-totals {
+  display: none;
+}
 
 .target-column-totals, .actual-column-totals {
   margin: 15px 0 0 15px;

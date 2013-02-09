@@ -2,28 +2,29 @@
 <div class="row-fluid">
   <!-- Target Volume chart -->
   <div class="chart-title">
-    <p class="volume-chart-title-text">Target Volume</p>
+    <p ng-class="{ target: '', actual: 'gray-out'}[activeGraph]" class="volume-chart-title-text">Target Volume</p>
     <p ng-class="{ target: 'icon-eye-open', actual: 'icon-eye-close'}[activeGraph]" class="volume"
        ng-click="changeActiveGraph()"></p>
   </div>
-  <div class="span5 target-volume" id="target-volume">
+  <div ng-class="{ target: '', actual: 'gray-out'}[activeGraph]" class="span5 target-volume" id="target-volume">
   </div>
   <!-- Actual Volume chart -->
   <div class="chart-title">
-    <p class="actual-chart-title-text">Actual Volume</p>
+    <p ng-class="{ target: 'gray-out', actual: ''}[activeGraph]" class="actual-chart-title-text">Actual Volume</p>
     <p ng-class="{ target: 'icon-eye-close', actual: 'icon-eye-open'}[activeGraph]" class="actual"
        ng-click="changeActiveGraph()"></p>
   </div>
-  <div class="span5 offset1 actual-volume " id="actual-volume"></div>
+  <div ng-class="{ target: 'gray-out', actual: ''}[activeGraph]" class="span5 offset1 actual-volume " id="actual-volume"></div>
 </div>
 <!-- Blue bar -->
 <div class="row-fluid">
   <div class="span12 blue-bar">
+    <div ng-class="{ target: 'offset2', actual: 'offset7'}[activeGraph]" class="arrow-up"></div>
     <p class="blue-bar-text">Volume tracking by Business Unit</p>
   </div>
 </div>
 <!-- Target Column Totals -->
-<div class="row-fluid target-column-totals">
+<div ng-class="{ target: 'show-totals', actual: ''}[activeGraph]" class="row-fluid target-column-totals">
   <div class="span1 difference" ng-repeat="difference in targetVolumeDifference">
     <p class="column">{{ difference[0].column }}</p>
     <p class="average {{ difference[0].difference | color }}">{{ difference[0].average }}&#37;</p>
@@ -35,7 +36,7 @@
   </div>
 </div>
 <!-- Actual Column Totals -->
-<div class="row-fluid actual-column-totals">
+<div ng-class="{ target: '', actual: 'show-totals'}[activeGraph]" class="row-fluid actual-column-totals">
   <div class="span1 difference" ng-repeat="difference in actualVolumeDifference">
     <p class="column">{{ difference[0].column }}</p>
     <p class="average {{ difference[0].difference | color }}">{{ difference[0].average }}&#37;</p>
