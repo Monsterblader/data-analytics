@@ -13,7 +13,7 @@
 }
 
 .span5.target-volume, .span5.actual-volume {
-  margin-top: 30px;
+  margin-top: 20px;
   -webkit-box-shadow: 8px 0px 1px -6px #CFCFCF;
   -moz-box-shadow:    8px 0px 1px -6px #CFCFCF;
   box-shadow:         8px 0px 1px -6px #CFCFCF;
@@ -26,26 +26,22 @@
   display: inline;
 }
 
-.volume-chart-title-text {
+.volume-chart-title-text, .actual-chart-title-text {
   position: absolute;
-  margin: 50px 0 0 50px;
+  margin: 40px 0 0 50px;
   z-index: 10;
   font-size: 1.5em;
   font-weight: 300;
 }
 
 .actual-chart-title-text {
-  position: absolute;
-  margin: 50px 0 0 615px;
-  z-index: 10;
-  font-size: 1.5em;
-  font-weight: 300;
+  margin-left: 615px;
 }
 
 .icon-eye-open, .icon-eye-close {
   position: absolute;
   padding: 8px;
-  margin: 38px 0 0 500px;
+  margin: 28px 0 0 500px;
   z-index: 10;
   font-size: 2em;
   color: gray;
@@ -63,7 +59,7 @@
 }
 
 .actual.icon-eye-open, .actual.icon-eye-close {
-  margin: 38px 0 0 1070px;
+  margin-left: 1070px;
 }
 
 .icon-eye-open {
