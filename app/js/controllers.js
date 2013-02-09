@@ -2,9 +2,27 @@
 
 /* Controllers */
 
-function HomeCtrl(){
+function HomeCtrl($scope){
+  $scope.boxes = [
+  {icon:'money',header:'Cost', alert:'check', text:'Projected month end total cost below target (£1347 M versus target of £1560 M)'},
+  {icon:'warning-sign',header:'Control', alert:'check', text:'3 HRI actions due in Q4 2012, all mitigating actions on track and all audit actions are green'},
+  {icon:'group',header:'Customer', alert:'check', text:'26 new complaints in August down 4% from last month'},
+  {icon:'user',header:'Colleagues', alert:'check', text:'Colleague satisfaction up 5% to 75%'},
+  {icon:'exchange',header:'Transform Initiatives', alert:'exclamation-sign', text:'2/5 regulatory projects and 3/3 integration projects are amber'},
+  {icon:'bar-chart',header:'Benchmarks', alert:'exclamation-sign', text:'Compare CB Bank to benchmarks based on a sample of 16 European banks'}
+  ];
 
+  $scope.randt = [
+    { picture: 'url(img/bank.png)' , date:'October 2012', text:'The triple transformation - Achieving a sustainable business model'},
+    {picture: 'url(img/city.png)', date:'October 2012', text:'Multichannel transformation - 10 steps towards customer experience and economic leadership'},
+    {picture: 'url(img/thinker.png)', date:'October 2012', text:'Using lean in wholesale financial services boosts productivity'}
+  ]
+
+  $scope.documents = [
+    {title: 'Published Reports'},{title: 'Benchmark Findings'},{title: 'CB Bank News'},{title: 'March reports'}
+  ]
 }
+
 // HomeCtrl.$inject = [];
 
 function OperationsCtrl() {
