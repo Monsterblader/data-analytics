@@ -77,12 +77,12 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
       },
       yAxis: {
         plotLines: [{
-          value: 70,
+          value: 75,
           color: '#008000',
           width: 2,
           zIndex: 4,
           label: {
-            text: 'Target (70%)',
+            text: 'Target (75%)',
             style: {
               color: '#349EEB',
               fontWeight: 'bold'

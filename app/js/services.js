@@ -22,7 +22,8 @@ var capacityModule = angular.module('McApp.capacityServices', []);
 capacityModule.factory('getVolumeDifference', function(){
   return function(data, dataset){
     var values = (dataset === 'target') ? data.Target.values : data.Actual.values;
-    var differencePercentage = (dataset === 'target') ? 70 : 85;
+    // var differencePercentage = (dataset === 'target') ? 70 : 85;
+    var differencePercentage = 75;
     // Put row data into columns
     var columns = [
        [] // Asia Minor
@@ -86,9 +87,9 @@ capacityModule.factory('getTotalColumnData', function(){
   return function(data, dataset){
     // Function to calculate color based on difference
     function calcColor(num){
-      if ((num - 85) < -5) {
+      if ((num - 75) < -5) {
         return '#FF0000';
-      } else if ((num - 85) < 0) {
+      } else if ((num - 75) < 0) {
         return '#FFD700';
       } else {
         return '#008000';
