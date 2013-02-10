@@ -2,20 +2,31 @@
 
 /* Filters */
 
+// angular.module('McApp.filters', []).
+//   filter('interpolate', ['version', function(version) {
+//     return function(text) {
+//       return String(text).replace(/\%VERSION\%/mg, version);
+//     }
+//   }]);
+
+angular.module("headcountFilters", []).filter("showChart", function() {
+  console.log("in showchart");
+  return function(input){
+    console.log(input);
+    return "asdfasdfsadfdsafasdfasdf"
+  }
+});
+
 angular.module('McApp.filters', [])
   .filter('mark', function(){
     return function(difference){
       var mark;
-      switch (true){
-        case (difference < -5):
-          mark = 'cross';
-          break;
-        case (difference < 0):
-          mark = 'exclamation';
-          break;
-        default:
-          mark = 'tick';
-          break;
+      if (difference < -5){
+        mark = 'cross';
+      } else if (difference < 0){
+        mark = 'exclamation';
+      } else {
+        mark = 'tick';
       }
       return mark;
     };
@@ -28,31 +39,18 @@ angular.module('McApp.filters', [])
   .filter('color', function(){
     return function(difference){
       var zone;
-      switch (true){
-        case (difference < -5):
-          zone = 'red';
-          break;
-        case (difference < 0):
-          zone = 'yellow';
-          break;
-        default:
-          zone = 'green';
-          break;
+      if (difference < -5){
+        zone = 'red';
+      } else if (difference < 0){
+        zone = 'yellow';
+      } else {
+        zone = 'green';
       }
       return zone;
     };
   })
   .filter('relative', function(){
     return function(difference){
-      var relative;
-      switch (true){
-        case (difference < 0):
-          relative = 'below';
-          break;
-        default:
-          relative = 'above';
-          break;
-      }
-      return relative;
+      return (difference < 0) ? 'below' : 'above';
     };
   });

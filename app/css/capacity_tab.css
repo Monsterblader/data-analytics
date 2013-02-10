@@ -4,12 +4,20 @@
   height: 500px;
 }
 
+.span5.target-volume, .span5.actual-volume {
+  width: 46%;
+}
+
 .span5.target-volume {
   margin-left: 30px !important;
 }
 
+.span5.offset1.actual-volume {
+  margin-left: 2% !important;
+}
+
 .span5.target-volume, .span5.actual-volume {
-  margin-top: 60px;
+  margin-top: 10px;
   -webkit-box-shadow: 8px 0px 1px -6px #CFCFCF;
   -moz-box-shadow:    8px 0px 1px -6px #CFCFCF;
   box-shadow:         8px 0px 1px -6px #CFCFCF;
@@ -17,6 +25,55 @@
   -webkit-border-radius: 10px 10px 0px 0px;
   border-radius:         10px 10px 0px 0px;
 }
+
+.chart-title {
+  display: inline;
+}
+
+.volume-chart-title-text, .actual-chart-title-text {
+  position: absolute;
+  margin: 30px 0 0 4%;
+  z-index: 10;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.actual-chart-title-text {
+  margin-left: 49%;
+}
+
+.capacity.icon-eye-open, .capacity.icon-eye-close {
+  position: absolute;
+  padding: 8px;
+  margin: 18px 0 0 40%;
+  z-index: 10;
+  font-size: 2em;
+  color: gray;
+}
+
+.capacity.icon-eye-close {
+  border: 1px solid lightgray;
+  -webkit-border-radius: 5px;
+  -moz-border-radius:    5px;
+  border-radius:         5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow:    0 1px 3px rgba(0, 0, 0, 0.6);
+  box-shadow:         0 1px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.capacity.actual.icon-eye-open, .capacity.actual.icon-eye-close {
+  margin-left: 84%;
+}
+
+.capacity.icon-eye-open {
+  pointer-events: none;
+}
+
+.gray-out {
+  opacity: 0.3;
+}
+
 /*
 .actual-volume {
   overflow-x: scroll;
@@ -25,8 +82,27 @@
 }*/
 
 .blue-bar {
-  background-image: -webkit-gradient(linear,0 0,0 100%,from(#349EEB),to(#2C82C0));
-  margin-bottom: 20px;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#349EEB), to(#2C82C0));
+  margin-bottom: 10px;
+}
+
+.arrow-up {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left:   20px solid transparent;
+  border-right:  20px solid transparent;
+  border-bottom: 20px solid #349EEB;
+  /*border-bottom: 20px solid red;*/
+  margin-top: -15px;
+}
+
+.arrow-up.offset2 {
+  margin-left: 22% !important;
+}
+
+.arrow-up.offset7 {
+  margin-left: 68% !important;
 }
 
 .blue-bar-text {
@@ -41,13 +117,17 @@
 
 /* Column Totals Styles */
 
+.show-totals {
+  display: none;
+}
+
 .target-column-totals, .actual-column-totals {
-  margin: 15px 0 0 15px;
+  margin: 10px 0 0 15px;
 }
 
 .span1.difference {
   width: 10%!important;
-  margin-right: 30px;
+  /*margin-right: 0px;*/
 }
 
 .column {

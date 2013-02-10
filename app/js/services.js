@@ -15,22 +15,6 @@ var months = {
   ,'12': 'Dec'
 };
 
-// var zone = function(difference){
-//   var zone;
-//   switch (true){
-//     case (difference < -5):
-//       zone = 'red';
-//       break;
-//     case (difference < 0):
-//       zone = 'yellow';
-//       break;
-//     default:
-//       zone = 'green';
-//       break;
-//   }
-//   return zone;
-// };
-
 /* Services */
 
 var capacityModule = angular.module('McApp.capacityServices', []);
@@ -38,7 +22,8 @@ var capacityModule = angular.module('McApp.capacityServices', []);
 capacityModule.factory('getVolumeDifference', function(){
   return function(data, dataset){
     var values = (dataset === 'target') ? data.Target.values : data.Actual.values;
-    var differencePercentage = (dataset === 'target') ? 70 : 85;
+    // var differencePercentage = (dataset === 'target') ? 70 : 85;
+    var differencePercentage = 75;
     // Put row data into columns
     var columns = [
        [] // Asia Minor
@@ -73,7 +58,7 @@ capacityModule.factory('getVolumeDifference', function(){
         return memo + num;
       }, 0);
       var average = Number( (sum / noOfRows).toFixed(1) );
-      var difference = Number( (differencePercentage - average).toFixed(1) );
+      var difference = Number( (average - differencePercentage).toFixed(1) );
       averages[index][0]["average"] = average;
       averages[index][0]["difference"] = difference;
     });
@@ -91,16 +76,36 @@ capacityModule.factory('getXAxis', function(){
       var info = row[0].slice(0, 3).reverse();
       return ('0' + info[0]).slice(-2) + ' ' + months['' + info[1]] + ', ' + ('' + info[2]).slice(-2);
     });
+    // Edit last date to be 'current week'
+    dates.pop();
+    dates.push('Current<br />Week');
     return dates;
   };
 });
 
 capacityModule.factory('getTotalColumnData', function(){
   return function(data, dataset){
+    // Function to calculate color based on difference
+    function calcColor(num){
+      if ((num - 75) < -5) {
+        return '#FF0000';
+      } else if ((num - 75) < 0) {
+        return '#FFD700';
+      } else {
+        return '#008000';
+      }
+    }
+
     var values = (dataset === 'target') ? data.Target.values : data.Actual.values;
     var total = _.map(values, function(row){
-      return Number( row[8].toFixed(1) );
+      if (dataset === 'target') {
+        return Number( row[8].toFixed(1) );
+      } else {
+        var yValue = Number( row[8].toFixed(1) );
+        return { y:  yValue, color: calcColor(yValue) };
+      }
     });
+    // console.log(total);
     return total;
   };
 });
