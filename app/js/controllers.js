@@ -120,7 +120,7 @@ function ColleaguesCtrl($scope, $http) {
         yAxis: {
           gridLineWidth: 0,
           labels: { enabled: false },
-          title: { text: '' }
+          title: { text: '' },
         },
         legend: {
           backgroundColor: '#FFFFFF',
@@ -169,7 +169,9 @@ function ColleaguesCtrl($scope, $http) {
         },
         labels: {
           enabled: false
-        }
+        },
+        tickLength: 0,
+        lineWidth: 0
       },
       yAxis: {
         gridLineWidth: 0,
