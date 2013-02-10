@@ -297,8 +297,9 @@ function ColleaguesCtrl($scope, $http) {
         chart: {
           renderTo: 'stackbar-colleagues',
           type: 'bar',
+          backgroundColor: '#F7F7F7',
           style: {
-            position: 'absolute'
+            position: 'absolute',
           }
         },
         credits: { enabled: false },
@@ -365,7 +366,8 @@ function ColleaguesCtrl($scope, $http) {
           type: 'bar',
           style: {
             position: 'absolute'
-          }
+          },
+          backgroundColor: '#F7F7F7'
         },
         credits: { enabled: false },
         title: {
@@ -427,7 +429,8 @@ function ColleaguesCtrl($scope, $http) {
         renderTo: 'scatterchart-colleagues',
         type: 'scatter',
         // style: { padding: '0px' },
-        zoomType: 'xy'
+        zoomType: 'xy',
+        backgroundColor: '#F7F7F7'
       },
       credits: { enabled: false },
       legend: {
