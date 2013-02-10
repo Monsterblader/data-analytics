@@ -96,8 +96,8 @@ function ColleaguesCtrl() {
         type: 'scatter',
         zoomType: 'xy'
       },
-      legend: { 
-          enabled: false 
+      legend: {
+          enabled: false
       },
       title: {
         text: 'Sites'
@@ -111,6 +111,7 @@ function ColleaguesCtrl() {
         }
       },
       yAxis: {
+        gridLineWidth: 0,
         title: {
           text: 'Skill'
         },
@@ -120,8 +121,7 @@ function ColleaguesCtrl() {
       },
       tooltip: {
         formatter: function() {
-          return ''+
-          this.x +' will, '+ this.y +' skill';
+          return 'x: ' + this.x + '<br>y: ' + this.y;
         }
       },
       plotOptions: {
@@ -130,10 +130,17 @@ function ColleaguesCtrl() {
             radius: 10,
             states: {
               hover: {
-                enabled: true,
+                enabled: false,
                 lineColor: 'rgb(100,100,100)'
               }
             }
+          },
+          dataLabels: {
+            formatter: function() {
+              return this.point.name;
+            },
+            enabled: true,
+            y: -15
           },
           states: {
             hover: {
@@ -144,9 +151,9 @@ function ColleaguesCtrl() {
           }
         }
       },
-        series: [ 
+        series: [
                 {
-                  data: [[1.2702, 2.2645], [1.3141, 2.6819], [1.3028, 2.6819], [1.3208, 2.6883], [1.4548, 2.6717], [1.1933, 2.0888], [1.401, 2.2237], [1.3671, 2.6646], [1.3738, 2.2567], [1.1023, 2.5663], [1.2717, 2.4029]],
+                  data: [{x:1.2702, y:2.2645, radius: 5, fillColor: '#008000', name: "England"}, [1.3141, 2.6819], [1.3028, 2.6819], [1.3208, 2.6883], [1.4548, 2.6717], [1.1933, 2.0888], [1.401, 2.2237], [1.3671, 2.6646], [1.3738, 2.2567], [1.1023, 2.5663], [1.2717, 2.4029]],
                   marker: {
                       symbol: 'circle'
                   }
@@ -156,7 +163,7 @@ function ColleaguesCtrl() {
                 }
               ]
     });
-    });   
+    });
 });
 }
 // ColleaguesCtrl.$inject = [];
