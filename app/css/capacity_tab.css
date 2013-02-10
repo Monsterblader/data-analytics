@@ -8,8 +8,12 @@
   margin-left: 30px !important;
 }
 
+.span5.offset1.actual-volume {
+  margin-left: 2% !important;
+}
+
 .span5.target-volume, .span5.actual-volume {
-  margin-top: 60px;
+  margin-top: 20px;
   -webkit-box-shadow: 8px 0px 1px -6px #CFCFCF;
   -moz-box-shadow:    8px 0px 1px -6px #CFCFCF;
   box-shadow:         8px 0px 1px -6px #CFCFCF;
@@ -17,6 +21,55 @@
   -webkit-border-radius: 10px 10px 0px 0px;
   border-radius:         10px 10px 0px 0px;
 }
+
+.chart-title {
+  display: inline;
+}
+
+.volume-chart-title-text, .actual-chart-title-text {
+  position: absolute;
+  margin: 40px 0 0 50px;
+  z-index: 10;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.actual-chart-title-text {
+  margin-left: 615px;
+}
+
+.icon-eye-open, .icon-eye-close {
+  position: absolute;
+  padding: 8px;
+  margin: 28px 0 0 500px;
+  z-index: 10;
+  font-size: 2em;
+  color: gray;
+}
+
+.icon-eye-close {
+  border: 1px solid lightgray;
+  -webkit-border-radius: 5px;
+  -moz-border-radius:    5px;
+  border-radius:         5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  -moz-box-shadow:    0 1px 3px rgba(0,0,0,0.6);
+  box-shadow:         0 1px 3px rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+
+.actual.icon-eye-open, .actual.icon-eye-close {
+  margin-left: 1070px;
+}
+
+.icon-eye-open {
+  pointer-events: none;
+}
+
+.gray-out {
+  opacity: 0.3;
+}
+
 /*
 .actual-volume {
   overflow-x: scroll;
@@ -27,6 +80,17 @@
 .blue-bar {
   background-image: -webkit-gradient(linear,0 0,0 100%,from(#349EEB),to(#2C82C0));
   margin-bottom: 20px;
+}
+
+.arrow-up {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left:   20px solid transparent;
+  border-right:  20px solid transparent;
+  border-bottom: 20px solid #349EEB;
+  /*border-bottom: 20px solid red;*/
+  margin-top: -15px;
 }
 
 .blue-bar-text {
@@ -41,13 +105,17 @@
 
 /* Column Totals Styles */
 
+.show-totals {
+  display: none;
+}
+
 .target-column-totals, .actual-column-totals {
   margin: 15px 0 0 15px;
 }
 
 .span1.difference {
   width: 10%!important;
-  margin-right: 30px;
+  /*margin-right: 0px;*/
 }
 
 .column {

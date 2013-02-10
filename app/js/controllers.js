@@ -101,29 +101,141 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
     $scope.actualVolumeDifference = getVolumeDifference($scope.capacityData, 'actual');
     // console.log($scope.capacityData);
 
+    // Set the active graph
+    $scope.activeGraph = 'target';
+    // Function to change the activeGraph
+    $scope.changeActiveGraph = function(){
+      if (this.activeGraph === 'target') {
+        $scope.activeGraph = 'actual';
+      } else {
+        $scope.activeGraph = 'target';
+      }
+    };
+
     // Extract axis, which is the same for 'Target' and 'Actual'
     var targetXAxis = getXAxis($scope.capacityData);
     // Extract data
     var targetTotalColumnData = getTotalColumnData($scope.capacityData, 'target');
     var actualTotalColumnData = getTotalColumnData($scope.capacityData, 'actual');
 
-    // Create chart
+    // Create volume chart
     var volumeChart = new Highcharts.Chart({
       chart: {
-        // renderTo: $targetChartContainer,
         renderTo: 'target-volume',
         type: 'line',
-        width: 4000
+        width: 4000,
+        marginTop: 100,
+        marginBottom: 50
+      },
+      credits: {
+        enabled: false
+      },
+      title: {
+        text: ''
       },
       xAxis: {
         categories: targetXAxis
       },
+      yAxis: {
+        plotLines: [{
+          value: 75,
+          color: '#008000',
+          width: 2,
+          zIndex: 4,
+          label: {
+            text: 'Target (75%)',
+            style: {
+              color: '#349EEB',
+              fontWeight: 'bold'
+            }
+          }
+        }],
+        title: ''
+      },
       series: [{
-        data: targetTotalColumnData
-      }]
+        data: targetTotalColumnData,
+        showInLegend: false
+      }],
+      tooltip: {
+        formatter: function(){
+          return this.x + '<br />Target Volume Total: '+ this.y +'%';
+        }
+      },
+      plotOptions: {
+        series: {
+          color: '#D3D3D3',
+          marker: {
+            fillColor: '#FFD700',
+            lineWidth: 2,
+            lineColor: '#FFD700',
+            radius: 6
+          },
+          dataLabels: {
+            enabled: true,
+            y: -15,
+            style: {
+              fontWeight: 'bold'
+            }
+          }
+        }
+      }
+    });
+    // Create actual chart
+    var actualChart = new Highcharts.Chart({
+      chart: {
+        renderTo: 'actual-volume',
+        type: 'column',
+        width: 4000,
+        marginTop: 100,
+        marginBottom: 50
+      },
+      credits: {
+        enabled: false
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        categories: targetXAxis
+      },
+      yAxis: {
+        title: ''
+      },
+      series: [{
+        data: actualTotalColumnData,
+        showInLegend: false
+      }],
+      tooltip: {
+        formatter: function(){
+          return this.x + '<br />Target Volume Total: '+ this.y +'%';
+        }
+      },
+      plotOptions: {
+        series: {
+          dataLabels: {
+            enabled: true,
+            y: -15,
+            style: {
+              fontWeight: 'bold'
+            }
+          },
+          borderColor: null,
+          borderWidth: 0
+        }
+      }
     });
   }).error(function(data, status, headers, config){
     console.log(data, status, headers, config);
+  });
+
+  $scope.$on('$viewContentLoaded', function(){
+    $('#target-volume').on('scroll', function () {
+      $('#actual-volume').scrollLeft($(this).scrollLeft());
+    });
+
+    $('#actual-volume').on('scroll', function () {
+      $('#target-volume').scrollLeft($(this).scrollLeft());
+    });
   });
 }
 // CapacityCtrl.$inject = ['$scope', '$http'];
