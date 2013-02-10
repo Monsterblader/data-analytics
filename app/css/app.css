@@ -50,6 +50,7 @@ body {
   text-shadow: none;
 }
 
+
 .navbar-inner{
   border:none;
   background-image: -webkit-gradient(linear,0 0,0 100%,from(#349EEB),to(#2C82C0));
@@ -73,17 +74,29 @@ body {
 
 ul.nav.nav-list [class^="icon-"]::before,
 ul.nav.nav-list [class*=" icon-"]::before, .grayIcon::before {
-  background: -webkit-linear-gradient(top, rgba(148,148,148,1) 0%,rgba(76,76,76,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(148,148,148,0.5) 0%,rgba(76,76,76,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;  reset Font Awesome's display:inline-block 
+}
+
+
+
+ul.nav.nav-list li.active [class^="icon-"]::before,
+ul.nav.nav-list li.active [class*=" icon-"]::before {
+  background: -webkit-linear-gradient(-45deg, rgba(184,242,253,1) 0%,rgba(41,127,198,1) 70%,rgba(81,204,250,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: initial; /* reset Font Awesome's display:inline-block */
 }
+
 .span1{
   width: 7%!important;
 }
 
 .views{
   margin-top:20px;
+  overflow: hidden;
 }
 
 .span11{
@@ -94,6 +107,11 @@ ul.nav.nav-list [class*=" icon-"]::before, .grayIcon::before {
 ul.nav.nav-list li{
   font-size: 40px;
   margin-top: 20px;
+}
+
+
+ul.nav.nav-list li.active a{
+  background: -webkit-gradient(linear,0 0,0 100%,from(#050505),to(#252525));
 }
 
 .dashBoardBox{
@@ -156,7 +174,7 @@ ul.nav.nav-list li{
   padding:  10px;
 }
 
-.dashBoardBox i.icon-check, .dashBoardBox i.icon-exclamation-sign{
+.dashBoardBox i.icon-ok-sign, .dashBoardBox i.icon-exclamation-sign{
   float: right;
   font-size: 70px;
   padding-right: 1%;
@@ -168,8 +186,14 @@ i.icon-exclamation-sign::before {
   -webkit-text-fill-color: transparent;
   display: initial; /* reset Font Awesome's display:inline-block */
 }
-i.icon-check::before {
+i.icon-ok-sign::before {
   background: -webkit-linear-gradient(top, rgba(83,198,101,1) 0%,rgba(58,138,60,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial; /* reset Font Awesome's display:inline-block */
+}
+i.icon-remove-sign::before {
+  background: -webkit-linear-gradient(top, #E63842,#D02A21 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: initial; /* reset Font Awesome's display:inline-block */
@@ -207,5 +231,80 @@ i.icon-check::before {
 
 .span9::-webkit-scrollbar { 
     display: none; 
+}
+
+/*******************************
+Styles for cost.html partial
+************************/
+.boxHeader{
+  color: #367FB2;
+  background: -webkit-linear-gradient(top, #EFEFEF 0%,#E1E1E1 100%);
+  padding: 15px;
+  font-size: 18px;
+  box-shadow:0px 3px 20px -10px black;
+  border-bottom: 2px solid #B8B8B8;
+}
+
+.boxHeader i{
+  font-size: 20px;
+}
+
+.box{
+  background: white;
+  display: table;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2%;
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.2);
+}
+.boxItem{
+  float: left;
+  padding: 15px;
+  box-shadow:24px 0px 76px -33px;
+  min-height: 115px!important;
+}
+.boxItem .title{
+  font-weight: bold;
+  color: #535353;
+  font-size: 18px;
+}
+.boxItem .date{
+  color: #959595;
+  font-size: 17px;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  margin-bottom: 5px;
+}
+.boxItem .amount{
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 5px;
+}
+.boxItem .target{
+  font-size: 14px;
+}
+
+
+
+/******/
+
+
+.fragment {
+    position: relative;
+    -moz-transition-property: left;
+    -o-transition-property: left;
+    -webkit-transition-property: left;
+    transition-property: left;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s
+}
+
+.fragment:not(.blah) {
+    left: 1500px;
+}
+
+.fragment.blah {
+    left: 0px;
 }
 

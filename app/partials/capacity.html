@@ -1,20 +1,23 @@
+<div class="container-fluid">
 <!-- Charts -->
 <div class="row-fluid">
-  <!-- Target Volume chart -->
-  <div class="chart-title">
-    <p ng-class="{ target: '', actual: 'gray-out'}[activeGraph]" class="volume-chart-title-text">Target Volume</p>
-    <p ng-class="{ target: 'icon-eye-open', actual: 'icon-eye-close'}[activeGraph]" class="volume"
-       ng-click="changeActiveGraph()"></p>
+  <div class="span12">
+    <!-- Target Volume chart -->
+    <div class="chart-title">
+      <p ng-class="{ target: '', actual: 'gray-out'}[activeGraph]" class="volume-chart-title-text">Target Volume</p>
+      <p ng-class="{ target: 'icon-eye-open', actual: 'icon-eye-close'}[activeGraph]" class="volume"
+         ng-click="changeActiveGraph()"></p>
+    </div>
+    <div ng-class="{ target: '', actual: 'gray-out'}[activeGraph]" class="span5 target-volume" id="target-volume">
+    </div>
+    <!-- Actual Volume chart -->
+    <div class="chart-title">
+      <p ng-class="{ target: 'gray-out', actual: ''}[activeGraph]" class="actual-chart-title-text">Actual Volume</p>
+      <p ng-class="{ target: 'icon-eye-close', actual: 'icon-eye-open'}[activeGraph]" class="actual"
+         ng-click="changeActiveGraph()"></p>
+    </div>
+    <div ng-class="{ target: 'gray-out', actual: ''}[activeGraph]" class="span5 offset1 actual-volume " id="actual-volume"></div>
   </div>
-  <div ng-class="{ target: '', actual: 'gray-out'}[activeGraph]" class="span5 target-volume" id="target-volume">
-  </div>
-  <!-- Actual Volume chart -->
-  <div class="chart-title">
-    <p ng-class="{ target: 'gray-out', actual: ''}[activeGraph]" class="actual-chart-title-text">Actual Volume</p>
-    <p ng-class="{ target: 'icon-eye-close', actual: 'icon-eye-open'}[activeGraph]" class="actual"
-       ng-click="changeActiveGraph()"></p>
-  </div>
-  <div ng-class="{ target: 'gray-out', actual: ''}[activeGraph]" class="span5 offset1 actual-volume " id="actual-volume"></div>
 </div>
 <!-- Blue bar -->
 <div class="row-fluid">
@@ -46,4 +49,5 @@
       {{ difference[0].difference | relative }} target
     </p>
   </div>
+</div>
 </div>
