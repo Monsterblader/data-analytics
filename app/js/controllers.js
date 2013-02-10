@@ -101,10 +101,11 @@ function ColleaguesCtrl($scope, $http) {
         },
         credits: { enabled: false },
         title: {
-          text: 'Colleagues'
+          text: 'Skill',
+          align: 'left'
         },
         xAxis: {
-          categories: ['I have clear targets and objectives', 'I recieve training/coaching/feedback', 'There is a clear link between my performance and reward', 'I am satisfied with my job', 'I intend to stay in the company', 'I am willing to exert extraordinary effort', 'I continuously find ways and am encouraged to innovate'],
+          categories: ['I have clear targets and objectives', 'I recieve training/coaching/feedback', 'There is a clear link between my performance and reward'],
           labels: {
             enabled: true,
             align: 'left',
@@ -123,8 +124,12 @@ function ColleaguesCtrl($scope, $http) {
           title: { text: '' },
         },
         legend: {
+          borderColor: 'transparent',
           backgroundColor: '#FFFFFF',
-          reversed: true
+          reversed: true,
+          floating: true,
+          verticalAlign: 'top',
+          x: 60
         },
         tooltip: {
           formatter: function() {
@@ -139,21 +144,87 @@ function ColleaguesCtrl($scope, $http) {
         series: [{
           name: 'Agree',
           color: 'green',
-          data: [57, 43, 30, 73, 54, 79, 29]
+          data: [57, 43, 30]
         }, {
           name: 'Disagree',
           color: 'red',
-          data: [39, 45, 32, 18, 41, 7, 29]
+          data: [39, 45, 32]
         }, {
           name: 'Neutral',
           color: 'orange',
-          data: [4, 12, 38, 9, 5, 14, 42]
+          data: [4, 12, 38]
         }]
       });
+
+
+      var chart2 = new Highcharts.Chart({
+        chart: {
+          renderTo: 'stackbar-colleagues2',
+          type: 'bar',
+          style: {
+            position: 'absolute'
+          }
+        },
+        credits: { enabled: false },
+        title: {
+          text: 'Will',
+          align: 'left'
+        },
+        xAxis: {
+          categories: ['I am satisfied with my job', 'I intend to stay in the company', 'I am willing to exert extraordinary effort', 'I continuously find ways and am encouraged to innovate'],
+          labels: {
+            enabled: true,
+            align: 'left',
+            x: 5,
+            y: -14,
+            style: {
+              width: '350px'
+            }
+          },
+          lineWidth: 0,
+          tickLength: 0
+        },
+        yAxis: {
+          gridLineWidth: 0,
+          labels: { enabled: false },
+          title: { text: '' },
+        },
+        legend: {
+          enabled: false,
+          backgroundColor: '#FFFFFF',
+          reversed: true,
+        },
+        tooltip: {
+          formatter: function() {
+            return ''+ this.series.name +': '+ this.y +'%';
+          }
+        },
+        plotOptions: {
+          series: {
+            stacking: 'normal'
+          }
+        },
+        series: [{
+          name: 'Agree',
+          color: 'green',
+          data: [73, 54, 79, 29]
+        }, {
+          name: 'Disagree',
+          color: 'red',
+          data: [18, 41, 7, 29]
+        }, {
+          name: 'Neutral',
+          color: 'orange',
+          data: [9, 5, 14, 42]
+        }]
+      });
+
+
       var scatterChart = new Highcharts.Chart({
       chart: {
         renderTo: 'scatterchart-colleagues',
         type: 'scatter',
+        // style: { padding: '0px' },
         zoomType: 'xy'
       },
       credits: { enabled: false },

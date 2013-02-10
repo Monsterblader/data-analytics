@@ -1,5 +1,8 @@
 .scatter-colleagues {
 	float: left;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
 }
 
 .mark-exclamation:before {
@@ -21,4 +24,18 @@
 .percent {
 	font-size: 2.2em;
 	color: green;
+}
+
+.stack-colleagues {
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+#stackbar-colleagues2 {
+  height: 260px;
+}
+
+.bar-container {
+  margin-left: 200px;
 }
