@@ -3,11 +3,12 @@
 /* Controllers */
 
 function HomeCtrl($scope){
+  console.log($scope)
   $scope.boxes = [
-  {icon:'money',header:'Cost', alert:'check', text:'Projected month end total cost below target (£1347 M versus target of £1560 M)'},
-  {icon:'warning-sign',header:'Control', alert:'check', text:'3 HRI actions due in Q4 2012, all mitigating actions on track and all audit actions are green'},
-  {icon:'group',header:'Customer', alert:'check', text:'26 new complaints in August down 4% from last month'},
-  {icon:'user',header:'Colleagues', alert:'check', text:'Colleague satisfaction up 5% to 75%'},
+  {icon:'money',header:'Cost', alert:'ok-sign', text:'Projected month end total cost below target (£1347 M versus target of £1560 M)'},
+  {icon:'warning-sign',header:'Control', alert:'ok-sign', text:'3 HRI actions due in Q4 2012, all mitigating actions on track and all audit actions are green'},
+  {icon:'group',header:'Customer', alert:'ok-sign', text:'26 new complaints in August down 4% from last month'},
+  {icon:'user',header:'Colleagues', alert:'ok-sign', text:'Colleague satisfaction up 5% to 75%'},
   {icon:'exchange',header:'Transform Initiatives', alert:'exclamation-sign', text:'2/5 regulatory projects and 3/3 integration projects are amber'},
   {icon:'bar-chart',header:'Benchmarks', alert:'exclamation-sign', text:'Compare CB Bank to benchmarks based on a sample of 16 European banks'}
   ];
@@ -243,5 +244,9 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
 // CapacityCtrl.$inject = ['$scope', '$http'];
 
 function ColleaguesCtrl() {
+}
+// ColleaguesCtrl.$inject = [];
+
+function CostCtrl() {
 }
 // ColleaguesCtrl.$inject = [];
