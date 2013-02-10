@@ -138,12 +138,15 @@ function ColleaguesCtrl($scope, $http) {
         },
         series: [{
           name: 'Agree',
+          color: 'green',
           data: [57, 43, 30, 73, 54, 79, 29]
         }, {
           name: 'Disagree',
+          color: 'red',
           data: [39, 45, 32, 18, 41, 7, 29]
         }, {
           name: 'Neutral',
+          color: 'orange',
           data: [4, 12, 38, 9, 5, 14, 42]
         }]
       });
