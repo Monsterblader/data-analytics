@@ -38,16 +38,16 @@
   margin-left: 615px;
 }
 
-.icon-eye-open, .icon-eye-close {
+.capacity.icon-eye-open, .capacity.icon-eye-close {
   position: absolute;
   padding: 8px;
-  margin: 28px 0 0 500px;
+  margin: 28px 0 0 34.7%;
   z-index: 10;
   font-size: 2em;
   color: gray;
 }
 
-.icon-eye-close {
+.capacity.icon-eye-close {
   border: 1px solid lightgray;
   -webkit-border-radius: 5px;
   -moz-border-radius:    5px;
@@ -58,11 +58,11 @@
   cursor: pointer;
 }
 
-.actual.icon-eye-open, .actual.icon-eye-close {
-  margin-left: 1070px;
+.capacity.actual.icon-eye-open, .capacity.actual.icon-eye-close {
+  margin-left: 74%;
 }
 
-.icon-eye-open {
+.capacity.icon-eye-open {
   pointer-events: none;
 }
 
