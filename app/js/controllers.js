@@ -49,21 +49,78 @@ function CapacityCtrl($scope, $http, getXAxis, getVolumeDifference, getTotalColu
 }
 // CapacityCtrl.$inject = ['$scope', '$http'];
 
-function ColleaguesCtrl() {
-  $(function () {
-    var chart;
-    var scatterChart;
-    $(document).ready(function() {
-      chart = new Highcharts.Chart({
+function ColleaguesCtrl($scope, $http) {
+  $http.get('../data/Colleagues.json').success(function(data, status, headers, config){
+    var values = data.AGREE.values;
+    // console.log(values[0]);
+    // var x = values.
+
+    var colorObject = {
+      'Cardiff': 'orange',
+      'Chester': 'red',
+      'Leeds': 'red',
+      'Glasgow': 'orange',
+      'Birmingham': 'red',
+      'Edinburgh': 'orange',
+      'Belfast': 'orange',
+      'Manchester': 'green',
+      'Newport': 'green',
+      'Dunfermline': 'green',
+      'Wolverhampton': 'green'
+    };
+
+    var dataArray = [];
+    for (var i = 0; i < values.length; i++) {
+      var radius =  values[i].pop() / 100;
+      var name = values[i].shift();
+      var pointColor = colorObject[name];
+      var xC = _.reduce(values[i].slice(0, 3), function(memo, num) {
+        return memo + num;
+      }, 0);
+
+      var yC = _.reduce(values[i].slice(3), function(memo, num) {
+        return memo + num;
+      }, 0);
+      var dataPoint = {
+        x : xC,
+        y : yC,
+        radius: radius,
+        name: name,
+        fillColor: pointColor
+      };
+      dataArray.push(dataPoint);
+    }
+
+    var chart = new Highcharts.Chart({
         chart: {
           renderTo: 'stackbar-colleagues',
-          type: 'bar'
+          type: 'bar',
+          style: {
+            position: 'absolute'
+          }
         },
+        credits: { enabled: false },
         title: {
           text: 'Colleagues'
         },
         xAxis: {
-          categories: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7']
+          categories: ['I have clear targets and objectives', 'I recieve training/coaching/feedback', 'There is a clear link between my performance and reward', 'I am satisfied with my job', 'I intend to stay in the company', 'I am willing to exert extraordinary effort', 'I continuously find ways and am encouraged to innovate'],
+          labels: {
+            enabled: true,
+            align: 'left',
+            x: 5,
+            y: -14,
+            style: {
+              width: '350px'
+            }
+          },
+          lineWidth: 0,
+          tickLength: 0
+        },
+        yAxis: {
+          gridLineWidth: 0,
+          labels: { enabled: false },
+          title: { text: '' }
         },
         legend: {
           backgroundColor: '#FFFFFF',
@@ -90,12 +147,13 @@ function ColleaguesCtrl() {
           data: [4, 12, 38, 9, 5, 14, 42]
         }]
       });
-      scatterChart = new Highcharts.Chart({
+      var scatterChart = new Highcharts.Chart({
       chart: {
         renderTo: 'scatterchart-colleagues',
         type: 'scatter',
         zoomType: 'xy'
       },
+      credits: { enabled: false },
       legend: {
           enabled: false
       },
@@ -153,7 +211,7 @@ function ColleaguesCtrl() {
       },
         series: [
                 {
-                  data: [{x:1.2702, y:2.2645, radius: 5, fillColor: '#008000', name: "England"}, [1.3141, 2.6819], [1.3028, 2.6819], [1.3208, 2.6883], [1.4548, 2.6717], [1.1933, 2.0888], [1.401, 2.2237], [1.3671, 2.6646], [1.3738, 2.2567], [1.1023, 2.5663], [1.2717, 2.4029]],
+                  data: dataArray,
                   marker: {
                       symbol: 'circle'
                   }
@@ -163,7 +221,8 @@ function ColleaguesCtrl() {
                 }
               ]
     });
-    });
-});
+  }).error(function(err) {
+    console.log(err);
+  });
 }
 // ColleaguesCtrl.$inject = [];
