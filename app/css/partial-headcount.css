@@ -1,0 +1,52 @@
+.summary {
+	width: 100px;
+}
+
+.greenish {
+	color: green;
+}
+
+.heatTable {
+  border-collapse: separate;
+  border-spacing: 3px;
+}
+
+.horBox {
+  color: white;
+  width: 60px;
+  padding: 3px 10px 3px 10px;
+  text-align: center;
+  border-width: 2px;
+  border-color: white;
+}
+
+.varPer {
+  width: 150px;
+}
+
+#container2 {
+  min-width: 300px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.rightBtnGrp {
+  width: 150px;
+  height: 40px;
+  text-align: left;
+}
+
+#hcRightImg {
+  min-width: 300px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.heatTable {
+}
+
+.GOclass {
+}
+
+.BUBclass {
+}

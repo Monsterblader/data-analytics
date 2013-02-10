@@ -29,7 +29,69 @@ function OperationsCtrl() {
 }
 // OperationsCtrl.$inject = [];
 
-function HeadCountCtrl() {
+function HeadCountCtrl($scope) {
+  $scope.numTypeProp = "typePerc";
+  $(".BUBclass").hide();
+  variancePerc();
+  grOp();
+  $scope.heatMapHead = ["Asia Minor", "SuperCard", "Western", "Africa", "Banking", "Corporate", "Wealth", "Head"];
+  var heatMapRaw = [[{value: -122, sub: "to 3,447"}, {value: 20, sub: "to 1,033"}, {value: -45, sub: "to 2,044"}, {value: 17, sub: "to 1,076"}, {value: -20, sub: "to 1,012"}, {value: 23, sub: "to 1,950"}, {value: -12, sub: "to 730"}, {value: -5, sub: "to 197"}],
+                    [{value: -112, sub: "to 221"}, {value: -28, sub: "to 66"}, {value: 24, sub: "to 131"}, {value: -20, sub: "to 69"}, {value: -35, sub: "to 65"}, {value: 25, sub: "to 125"}, {value: -24, sub: "to 47"}, {value: 0, sub: "to 13"}],
+                    [{value: -45, sub: "to 114"}, {value: 10, sub: "to 34"}, {value: -12, sub: "to 68"}, {value: -20, sub: "to 36"}, {value: -16, sub: "to 33"}, {value: -54, sub: "to 65"}, {value: 14, sub: "to 24"}, {value: 65, sub: "to 7"}],
+                    [{value: -30, sub: "to 536"}, {value: -32, sub: "to 161"}, {value: 24, sub: "to 318"}, {value: -20, sub: "to 167"}, {value: -2, sub: "to 158"}, {value: -50, sub: "to 304"}, {value: 17, sub: "to 114"}, {value: 55, sub: "to 31"}],
+                    [{value: -5, sub: "to 45"}, {value: 5, sub: "to 14"}, {value: 3, sub: "to 27"}, {value: 0, sub: "to 14"}, {value: 0, sub: "to 13"}, {value: -2, sub: "to 26"}, {value: 0, sub: "to 10"}, {value: -1, sub: "to 3"}],
+                    [{value: 15, sub: "to 296"}, {value: -12, sub: "to 89"}, {value: 3, sub: "to 75"}, {value: 1, sub: "to 92"}, {value: -2, sub: "to 87"}, {value: -10, sub: "to 167"}, {value: 0, sub: "to 63"}, {value: 5, sub: "to 17"}],
+                    [{value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 1729"}],
+                    [{value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 0"}, {value: 0, sub: "to 960"}],
+                    [{value: -299, sub: "to 5,466"}, {value: -37, sub: "to 1,638"}, {value: -3, sub: "to 3,242"}, {value: -42, sub: "to 1,706"}, {value: -75, sub: "to 1,605"}, {value: -68, sub: "to 3,093"}, {value: -5, sub: "to 1,158"}, {value: 119, sub: "to 312"}]];
+  var heatMapPercRaw = [[{value: -122, sub: "to 3,447", color: "purple"}, {value: 20, sub: "to 1,033"}, {value: -45, sub: "to 2,044"}, {value: 17, sub: "to 1,076"}, {value: -20, sub: "to 1,012"}, {value: 23, sub: "to 1,950"}, {value: -12, sub: "to 730"}, {value: -5, sub: "to 197"}],
+                        [{value: -112, sub: "to 221"}, {value: -28, sub: "to 66"}, {value: 24, sub: "to 131"}, {value: -20, sub: "to 69"}, {value: -35, sub: "to 65"}, {value: 25, sub: "to 125"}, {value: -24, sub: "to 47"}, {value: 0, sub: "to 13"}],
+                        [{value: -45, sub: "to 114"}, {value: 10, sub: "to 34"}, {value: -12, sub: "to 68"}, {value: -20, sub: "to 36"}, {value: -16, sub: "to 33"}, {value: -54, sub: "to 65"}, {value: 14, sub: "to 24"}, {value: 65, sub: "to 7"}],
+                        [{value: -30, sub: "to 536"}, {value: -32, sub: "to 161"}, {value: 24, sub: "to 318"}, {value: -20, sub: "to 167"}, {value: -2, sub: "to 158"}, {value: -50, sub: "to 304"}, {value: 17, sub: "to 114"}, {value: 55, sub: "to 31"}],
+                        [{value: -5, sub: "to 45"}, {value: 5, sub: "to 14"}, {value: 3, sub: "to 27"}, {value: 0, sub: "to 14"}, {value: 0, sub: "to 13"}, {value: -2, sub: "to 26"}, {value: 0, sub: "to 10"}, {value: -1, sub: "to 3"}],
+                        [{value: -299, sub: "to 5,466"}, {value: -37, sub: "to 1,638"}, {value: -3, sub: "to 3,242"}, {value: -42, sub: "to 1,706"}, {value: -75, sub: "to 1,605"}, {value: -68, sub: "to 3,093"}, {value: -5, sub: "to 1,158"}, {value: 119, sub: "to 312"}]];
+  heatMapRaw.forEach(function(subArray, key, origArray){
+    subArray.forEach(function(val, key, subArr){
+      if (val.value < 1) {
+        subArr[key].color = "green";
+      } else if (val.value < 6) {
+        subArr[key].color = "yellow";
+      } else {
+        subArr[key].color = "red";
+      }
+    });
+  });
+  $scope.BUBreakdown = heatMapRaw;
+  $scope.headerarray = [{title: "Actual", subTitle: "Current", value: "18,220", icon: "icon-arrow-down", delta: "112 from prior week"},
+                   {title: "Projection", subTitle: "End MandY", value: "18,404", icon: "icon-ok", delta: "411 below target"},
+                   {title: "Projection", subTitle: "End MandY", value: "16,887", icon: "icon-ok", delta: "453 below target"}];
+
+  $scope.change = function (){
+    if ($scope.numTypeProp === "typePerc") {
+      variancePerc();
+      $scope.BUBreakdown = heatMapPercRaw;
+    } else {
+      $scope.BUBreakdown = heatMapRaw;
+    }
+  };
+
+  $scope.GOClick = function (){
+    $(".groupOps").attr("class", "btn groupOps rightBtnGrp active");
+    $(".BUBreakdown").attr("class", "btn BUBreakdown rightBtnGrp");
+    $(".GOclass").show();
+    $(".BUBclass").hide();
+    // $("#containerRight").attr("class", "");
+    $(".heatTable").hide();
+    grOp();
+  };
+  $scope.BUBClick = function (){
+    $(".groupOps").attr("class", "btn groupOps rightBtnGrp");
+    $(".BUBreakdown").attr("class", "btn BUBreakdown rightBtnGrp active");
+    $(".GOclass").hide();
+    $(".BUBclass").show();
+    // $("#containerRight").attr("class", "hide");
+    $(".heatTable").show();
+  };
 }
 // HeadCountCtrl.$inject = [];
 
