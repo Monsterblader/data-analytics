@@ -50,6 +50,10 @@ body {
   text-shadow: none;
 }
 
+.nav-list > li > a{
+  padding: 15px;
+}
+
 
 .navbar-inner{
   border:none;

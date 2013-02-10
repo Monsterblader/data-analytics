@@ -1,11 +1,9 @@
 <!--// TODO dynamically insert path and back button in navbar.
 // TODO highlight and set eye for active View (Group Operations/BU Breakdown).
 // TODO set up functionality of absolute button-->
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="js/group-operations-chart.js"></script>
-<script src="js/varianceChart.js"></script>
 
-<div class="container-fluid" ng-controller="HeadCountCtrl">
+
+<div class="container-fluid fragment {{transitionState}}" ng-controller="HeadCountCtrl">
 	<div class="row-fluid">
 		<div class="container-fluid span3">
 			<p><h3>Expected Variance from Target</h3></p>
@@ -57,3 +55,14 @@
 		</div>
 	</div>
 </div>
+
+
+<script src="js/group-operations-chart.js"></script>
+<script src="js/varianceChart.js"></script>
+<script>
+window.onload = function(){
+	$('html').hide();
+	$('html').show();
+
+};
+</script>

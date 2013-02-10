@@ -1,5 +1,5 @@
 var grOp = function () {
-    var chart;
+    window.chart;
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
