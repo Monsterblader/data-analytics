@@ -31,6 +31,7 @@ function OperationsCtrl() {
 // OperationsCtrl.$inject = [];
 
 function HeadCountCtrl($scope) {
+  debugger
   $scope.numTypeProp = "typePerc";
   $scope.headerarray = [{title: "Actual", subTitle: "Current", value: "18,220", icon: "icon-arrow-down", delta: "112 from prior week"},
                    {title: "Projection", subTitle: "End September 2012", value: "18,404", icon: "icon-ok", delta: "411 below target"},
@@ -65,7 +66,15 @@ function HeadCountCtrl($scope) {
   $scope.BUBreakdown = heatMapPercRaw;
   $(".BUBclass").hide();
   grOp();
-  varPercChart();
+  if (!$("#chartLabel").length) {
+    labelChart();
+  }
+  if (!$("#d3Drawn").length) {
+    varPercChart([0.2, 2.3, 4.5, -8.2, -26.9, 24.5, 0, 0.6, 1], "d3Drawn", true);
+  }
+  if (!$("#d3Drawn2").length) {
+    varPercChart([-0.4, -0.2, -0.3, 0.1, 0.2, 0.3, 0, -0.1, -0.4], "d3Drawn2", false);
+  }
 
   $scope.change = function (){
     if ($scope.numTypeProp === "typePerc") {
