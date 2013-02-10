@@ -3,7 +3,7 @@
 <script src="js/group-operations-chart.js"></script>
 <script src="js/varianceChart.js"></script>
 
-<div class="container-fluid" ng-controller="HeadCountCtrl">
+<div class="container-fluid fragment {{transitionState}}" ng-controller="HeadCountCtrl">
 	<div class="row-fluid">
 		<div class="container-fluid span3">
 			<p><h3>Expected Variance from Target</h3></p>
@@ -50,3 +50,14 @@
 		</div>
 	</div>
 </div>
+
+
+<script src="js/group-operations-chart.js"></script>
+<script src="js/varianceChart.js"></script>
+<script>
+window.onload = function(){
+	$('html').hide();
+	$('html').show();
+
+};
+</script>

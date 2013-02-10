@@ -14,7 +14,8 @@ function HomeCtrl($scope){
   ];
 
   $scope.randt = [
-    { picture: 'url(img/bank.png)' , date:'October 2012', text:'The triple transformation - Achieving a sustainable business model'},
+    {picture: 'url(img/intro.jpg)' , date:'November 2012', text:'Immersion school students exhibit preternatural productivity.'},
+    {picture: 'url(img/bank.png)' , date:'October 2012', text:'The triple transformation - Achieving a sustainable business model'},
     {picture: 'url(img/city.png)', date:'October 2012', text:'Multichannel transformation - 10 steps towards customer experience and economic leadership'},
     {picture: 'url(img/thinker.png)', date:'October 2012', text:'Using lean in wholesale financial services boosts productivity'}
   ]
