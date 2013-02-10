@@ -68,19 +68,17 @@ function HeadCountCtrl($scope) {
   grOp();
   if (!$("#chartLabel").length) {
     labelChart();
-  }
-  if (!$("#d3Drawn").length) {
-    varPercChart([0.2, 2.3, 4.5, -8.2, -26.9, 24.5, 0, 0.6, 1], "d3Drawn", true);
-  }
-  if (!$("#d3Drawn2").length) {
-    varPercChart([-0.4, -0.2, -0.3, 0.1, 0.2, 0.3, 0, -0.1, -0.4], "d3Drawn2", false);
+    varPercChart([0.2, 2.3, 4.5, -8.2, -26.9, 24.5, 0, 0.6, 1], true);
+    varPercChart([-0.4, -0.2, -0.3, 0.1, 0.2, 0.3, 0, -0.1, -0.4], false);
   }
 
   $scope.change = function (){
     if ($scope.numTypeProp === "typePerc") {
       $(".highcharts-container").remove();
       $scope.BUBreakdown = heatMapPercRaw;
-      varPercChart();
+      labelChart();
+      varPercChart([0.2, 2.3, 4.5, -8.2, -26.9, 24.5, 0, 0.6, 1], true);
+      varPercChart([-0.4, -0.2, -0.3, 0.1, 0.2, 0.3, 0, -0.1, -0.4], false);
     } else {
       $scope.BUBreakdown = heatMapRaw;
       variancePerc();
