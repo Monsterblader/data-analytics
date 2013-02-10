@@ -61,32 +61,34 @@ function HeadCountCtrl($scope) {
       }
     });
   });
-  $scope.BUBreakdown = heatMapRaw;
+  $scope.BUBreakdown = heatMapPercRaw;
   $(".BUBclass").hide();
   grOp();
+  varPercChart();
 
   $scope.change = function (){
     if ($scope.numTypeProp === "typePerc") {
       $(".highcharts-container").remove();
-      varPercChart();
       $scope.BUBreakdown = heatMapPercRaw;
+      varPercChart();
     } else {
-      variancePerc();
       $scope.BUBreakdown = heatMapRaw;
+      variancePerc();
     }
   };
 
   $scope.GOClick = function (){
     $(".groupOps").attr("class", "btn groupOps rightBtnGrp active");
-    $(".BUBreakdown").attr("class", "btn BUBreakdown rightBtnGrp");
+    $(".BUBr").attr("class", "btn BUBr rightBtnGrp");
     $(".GOclass").show();
     $(".BUBclass").hide();
     $(".heatTable").hide();
     grOp();
   };
+
   $scope.BUBClick = function (){
     $(".groupOps").attr("class", "btn groupOps rightBtnGrp");
-    $(".BUBreakdown").attr("class", "btn BUBreakdown rightBtnGrp active");
+    $(".BUBr").attr("class", "btn BUBr rightBtnGrp active");
     $(".GOclass").hide();
     $(".BUBclass").show();
     $(".heatTable").show();

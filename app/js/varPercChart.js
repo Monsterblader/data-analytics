@@ -35,9 +35,20 @@ var varPercChart = function () {
       .attr("width", function(d) { return Math.abs(x(d) - x(0)); })
       .attr("height", y.rangeBand());
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .call(xAxis);
+  svg.selectAll("text")
+      .data(data)
+      .enter()
+      .append("text")
+      .text(function(d){
+        return d + "%";
+      })
+      .attr("x", function(d) { return x((d >= 0) ? 5 : -35); })
+      .attr("y", function(d, i) { return y(i) + y.rangeBand() / 2 + 5; })
+      .attr("text-anchor", "center");
+
+  // svg.append("g")
+  //     .attr("class", "x axis")
+  //     .call(xAxis);
 
   svg.append("g")
       .attr("class", "y axis")
