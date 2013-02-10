@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('McApp', ['McApp.capacityServices', 'McApp.filters'])
+angular.module('McApp', ['McApp.capacityServices', 'McApp.filters', 'headcountFilters'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/home', {templateUrl: 'partials/home.html', controller: HomeCtrl})
@@ -12,6 +12,7 @@ angular.module('McApp', ['McApp.capacityServices', 'McApp.filters'])
       .when('/cost', {templateUrl: 'partials/cost.html', controller: CostCtrl})
       .otherwise({redirectTo: '/home'});
 }]);
+
 
 function HomeFragmentController($scope) {
     $scope.$on("$routeChangeSuccess", function (scope, next, current) {

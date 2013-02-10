@@ -2,6 +2,21 @@
 
 /* Filters */
 
+// angular.module('McApp.filters', []).
+//   filter('interpolate', ['version', function(version) {
+//     return function(text) {
+//       return String(text).replace(/\%VERSION\%/mg, version);
+//     }
+//   }]);
+
+angular.module("headcountFilters", []).filter("showChart", function() {
+  console.log("in showchart");
+  return function(input){
+    console.log(input);
+    return "asdfasdfsadfdsafasdfasdf"
+  }
+});
+
 angular.module('McApp.filters', [])
   .filter('mark', function(){
     return function(difference){
