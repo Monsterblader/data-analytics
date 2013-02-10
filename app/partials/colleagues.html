@@ -1,27 +1,25 @@
-<div ng-controller="ColleaguesCtrl" class="scatter-colleagues" id="scatterchart-colleagues" style="max-width: 500px; min-width: 400px; height: 400px; margin: 0 auto">
-</div>
-
-<div ng-controller="ColleaguesCtrl" class="scatter-colleagues" id="stackbar-colleagues" style="max-width: 500px; min-width: 400px; height: 400px; margin: 0 auto">
-</div>
-
-<div>
-  <div>
-    <p>Attrition</p>
-    <hr>
-    <p>13.9%</p>
-    <p>up</p> 
-    <p>1.0% from prior month</p>
-    <p>warning</p>
-    <p class="mark-exclamation">1.4% above target</p>
+<div class="row-fluid">
+  <div ng-controller="ColleaguesCtrl" class="scatter-colleagues" id="scatterchart-colleagues" style="max-width: 650px; min-width: 400px; height: 400px; margin: 0 auto">
   </div>
 
-  <div>
-    <p>Absence/sickness</p>
+  <div ng-controller="ColleaguesCtrl" class="scatter-colleagues" id="stackbar-colleagues" style="max-width: 600px; min-width: 400px; height: 400px; margin: 0 auto">
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span-1">
+    <p class="column">Attrition</p>
     <hr>
-    <p>4.3%</p>
-    <p>up</p> 
-    <p>0.3% from prior month</p>
-    <p>warning</p>
-    <p>0.3% above target</p>
+    <p class="percent">13.9%</p>
+    <p class="uparrow">1.0% from prior month</p>
+    <p class="mark-exclamation"> 1.4% above target</p>
+  </div>
+
+  <div clas="span-1">
+    <p class="column">Absence/sickness</p>
+    <hr>
+    <p class="percent">4.3%</p>
+    <p class="uparrow">0.3% from prior month</p>
+    <p class="mark-exclamation"> 0.3% above target</p>
   </div>
 </div>
