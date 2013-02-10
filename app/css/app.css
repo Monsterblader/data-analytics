@@ -308,3 +308,10 @@ Styles for cost.html partial
     left: 0px;
 }
 
+.container-fluid {
+  padding: 0 0;
+}
+
+.container-fluid.fragment.blah {
+  margin-left: 20px;
+}
