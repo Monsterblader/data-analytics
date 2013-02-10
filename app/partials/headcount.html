@@ -1,7 +1,7 @@
-<!--// TODO dynamically insert path and back button in navbar.
-// TODO highlight and set eye for active View (Group Operations/BU Breakdown).
-// TODO set up functionality of absolute button-->
-
+<!--// TODO dynamically insert path and back button in navbar.-->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/group-operations-chart.js"></script>
+<script src="js/varianceChart.js"></script>
 
 <div class="container-fluid fragment {{transitionState}}" ng-controller="HeadCountCtrl">
 	<div class="row-fluid">
@@ -9,15 +9,10 @@
 			<p><h3>Expected Variance from Target</h3></p>
 			View
 			<div class="btn-group">
-			  <select class="varPer" ng-change="change()" ng-model="numTypeProp"><!-- class="btn dropdown-toggle hcView" href="#" data-toggle="dropdown" -->
+			  <select class="varPer" ng-change="change()" ng-model="numTypeProp">
 			    <option value="typePerc">Percentage</option>
 			    <option value="typeAbs">Absolute</option>
 			  </select>
-			  <!--ul class="dropdown-menu">
-			  	<li>Percentage</li>
-			  	<li>Absolute</li>
-			    <!-- dropdown menu links >
-			  </ul-->
 			</div>
 		</div>
 		<div class="container-fluid span9">
