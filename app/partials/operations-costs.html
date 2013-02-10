@@ -1,0 +1,60 @@
+<!--// TODO dynamically insert path and back button in navbar.
+// TODO highlight and set eye for active View (Group Operations/BU Breakdown).
+// TODO set up functionality of absolute button-->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/group-operations-chart.js"></script>
+<script src="js/varPercChart.js"></script>
+
+<div class="container-fluid" ng-controller="OperationCostsCtrl">
+  <div class="row-fluid">
+    <div class="container-fluid span3">
+      <p><h3>Expected Variance from Target</h3></p>
+      View
+      <div class="btn-group">
+        <select class="varPer" ng-change="change()" ng-model="numTypeProp"><!-- class="btn dropdown-toggle hcView" href="#" data-toggle="dropdown" -->
+          <option value="typePerc">Percentage</option>
+          <option value="typeAbs">Absolute</option>
+        </select>
+        <!--ul class="dropdown-menu">
+          <li>Percentage</li>
+          <li>Absolute</li>
+          <!-- dropdown menu links >
+        </ul-->
+      </div>
+    </div>
+    <div class="container-fluid span9">
+      <div class="float-left span2 summary" ng-repeat="block in headerarray">
+        <br>
+        <b>{{block.title}}</b>
+        <br>{{block.subTitle}}<hr>
+        <h2 class="greenish">{{block.value}}</h2><br>
+        <i class="{{block.icon}} greenish"></i>{{block.delta}}
+      </div>
+      <div class="float-left span2 summary">
+        <br>View
+        <div class="btn-group btn-group-vertical">
+          <button class="btn groupOps rightBtnGrp active" ng-click="GOClick()">Group Operations
+            <i class="GOclass icon-eye-open"></i></button>
+          <button class="btn BUBr rightBtnGrp" ng-click="BUBClick()">BU Breakdown
+            <i class="BUBclass icon-eye-open"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="container-fluid span3 containerLeftHolder">
+      <div id="containerLeft"></div>
+    </div>
+    <div class="container-fluid span9">
+      <table class="heatTable BUBclass">
+        <tr>
+          <td ng-repeat="name in heatMapHead">{{name}}</td>
+        </tr>
+        <tr ng-repeat="subArray in BUBreakdown">
+          <td class="horBox" ng-repeat="variance in subArray" style="background-color: {{variance.color}}">{{variance.value}}<br><i>{{variance.sub}}</i></td>
+        </tr>
+      </table>
+      <div id="containerRight" class="GOclass"></div>
+    </div>
+  </div>
+</div>
