@@ -50,7 +50,7 @@
 					<td ng-repeat="name in heatMapHead">{{name}}</td>
 				</tr>
 				<tr ng-repeat="subArray in BUBreakdown">
-					<td class="horBox" ng-repeat="variance in subArray" style="background-color: {{variance.color}}">{{variance.value}}<br>{{variance.sub}}</td>
+					<td class="horBox" ng-repeat="variance in subArray" style="background-color: {{variance.color}}">{{variance.value}}<br><i>{{variance.sub}}</i></td>
 				</tr>
 			</table>
 			<div id="containerRight" class="GOclass"></div>
