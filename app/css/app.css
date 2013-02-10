@@ -7,6 +7,7 @@ html{
 html,body,.row-fluid.tall,.container-fluid, .span1,.span11, .sidebar-nav{
   height: 100%;
   font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 body {
   margin-top: 40px;
@@ -81,7 +82,7 @@ ul.nav.nav-list [class*=" icon-"]::before, .grayIcon::before {
   background: -webkit-linear-gradient(top, rgba(148,148,148,0.5) 0%,rgba(76,76,76,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: initial;  reset Font Awesome's display:inline-block 
+  display: initial;  reset Font Awesome's display:inline-block
 }
 
 
@@ -218,6 +219,7 @@ i.icon-remove-sign::before {
 .sidebarright .span12{
   margin-bottom: 20px;
 }
+
 .sideBarWrap{
   overflow-y:scroll;
   overflow-x:visible;
@@ -226,6 +228,7 @@ i.icon-remove-sign::before {
 .sidebarright.row-fluid{
   height: 1000px;
 }
+
 .footerDoc{
   color: #4995BF;
   padding-top: 1%;
@@ -240,8 +243,8 @@ i.icon-remove-sign::before {
   cursor: pointer;
 }
 
-.span9::-webkit-scrollbar { 
-    display: none; 
+.span9::-webkit-scrollbar {
+    display: none;
 }
 
 ::-webkit-scrollbar{
