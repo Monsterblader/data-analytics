@@ -23,12 +23,11 @@
 			</div>
 		</div>
 		<div class="container-fluid span9">
-			<div class="float-left span2 summary" ng-repeat="block in headerarray">
-				<br>
-				<b>{{block.title}}</b>
-				<br>{{block.subTitle}}<hr>
-				<h2 class="greenish">{{block.value}}</h2><br>
-				<i class="{{block.icon}} greenish"></i>{{block.delta}}
+			<div class="float-left span3 boxItem" ng-repeat="block in headerarray">
+				<div class="title">{{block.title}}</div>
+				<div class="date">{{block.subTitle}}</div>
+				<div class="amount greenish">{{block.value}}</div>
+				<div class="target"><i class="{{block.icon}} greenish"></i>{{block.delta}}</div>
 			</div>
 			<div class="float-left span2 summary">
 				<br>View
