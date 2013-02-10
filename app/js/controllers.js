@@ -31,7 +31,6 @@ function OperationsCtrl() {
 // OperationsCtrl.$inject = [];
 
 function HeadCountCtrl($scope) {
-  debugger
   $scope.numTypeProp = "typePerc";
   $scope.headerarray = [{title: "Actual", subTitle: "Current", value: "18,220", icon: "icon-arrow-down", delta: "112 from prior week"},
                    {title: "Projection", subTitle: "End September 2012", value: "18,404", icon: "icon-ok", delta: "411 below target"},
@@ -52,6 +51,10 @@ function HeadCountCtrl($scope) {
                         [{value: -30, sub: "to 536"}, {value: -32, sub: "to 161"}, {value: 24, sub: "to 318"}, {value: -20, sub: "to 167"}, {value: -2, sub: "to 158"}, {value: -50, sub: "to 304"}, {value: 17, sub: "to 114"}, {value: 55, sub: "to 31"}],
                         [{value: -5, sub: "to 45"}, {value: 5, sub: "to 14"}, {value: 3, sub: "to 27"}, {value: 0, sub: "to 14"}, {value: 0, sub: "to 13"}, {value: -2, sub: "to 26"}, {value: 0, sub: "to 10"}, {value: -1, sub: "to 3"}],
                         [{value: -299, sub: "to 5,466"}, {value: -37, sub: "to 1,638"}, {value: -3, sub: "to 3,242"}, {value: -42, sub: "to 1,706"}, {value: -75, sub: "to 1,605"}, {value: -68, sub: "to 3,093"}, {value: -5, sub: "to 1,158"}, {value: 119, sub: "to 312"}]];
+  var varCostAbsMon = {data: [-144, -170, -58, -38, 0, 0, 0, 0, -410], isPerc: false, barNegPos: {left: "bar positive", right: "bar negative"}};
+  var varCostAbsYear = {data: [-171, -43, -79, -160, 0, 0, 0, 0, -453], isPerc: false, barNegPos: {left: "bar positive", right: "bar negative"}};
+  var varHCProjMon = {data: [-1.3, -23.1, -15.3, -2.1, 0, 0, 0, 0, -2.3], isPerc: true, barNegPos: {left: "bar positive", right: "bar negative"}};
+  var varHCProjYear = {data: [-1.5, -5.8, -20.8, -8.9, 0, 0, 0, 0, -2.5], isPerc: true, barNegPos: {left: "bar positive", right: "bar negative"}};
   heatMapRaw.forEach(function(subArray, key, origArray){
     subArray.forEach(function(val, key, subArr){
       if (val.value < 1) {
@@ -63,30 +66,30 @@ function HeadCountCtrl($scope) {
       }
     });
   });
-  $scope.BUBreakdown = heatMapPercRaw;
+  $scope.BUBreakdown = heatMapRaw;
   $(".BUBclass").hide();
   grOp();
   if (!$("#chartLabel").length) {
     labelChart();
-    varPercChart([0.2, 2.3, 4.5, -8.2, -26.9, 24.5, 0, 0.6, 1], true);
-    varPercChart([-0.4, -0.2, -0.3, 0.1, 0.2, 0.3, 0, -0.1, -0.4], false);
+    varianceChart(varHCProjMon);
+    varianceChart(varHCProjYear);
   }
 
   $scope.change = function (){
     if ($scope.numTypeProp === "typePerc") {
       $("#containerLeft").remove();
       $(".containerLeftHolder").append("<div id='containerLeft'></div>");
-      $scope.BUBreakdown = heatMapPercRaw;
+      // $scope.BUBreakdown = heatMapPercRaw;
       labelChart();
-      varPercChart([0.2, 2.3, 4.5, -8.2, -26.9, 24.5, 0, 0.6, 1], true);
-      varPercChart([-0.4, -0.2, -0.3, 0.1, 0.2, 0.3, 0, -0.1, -0.4], false);
+      varianceChart(varHCProjMon);
+      varianceChart(varHCProjYear);
     } else {
       $("#containerLeft").remove();
       $(".containerLeftHolder").append("<div id='containerLeft'></div>");
-      $scope.BUBreakdown = heatMapRaw;
+      // $scope.BUBreakdown = heatMapRaw;
       labelChart();
-      varPercChart([1, 2.3, 4.5, 8.2, 26.9, 24.5, 0, 0.6, 1], true);
-      varPercChart([-0.4, -0.2, -0.3, 0.1, 0.2, 0.3, 0, -0.1, -0.4], false);
+      varianceChart(varCostAbsMon);
+      varianceChart(varCostAbsYear);
     }
   };
 
