@@ -15,7 +15,8 @@ var varPercChart = function (data, isPerc) {
       .domain(d3.range(data.length))
       .rangeRoundBands([0, height], .2);
 
-  var svg = d3.select("#containerLeft").append("svg")
+  var svg = d3.select("#containerLeft")
+      .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -51,7 +52,7 @@ var varPercChart = function (data, isPerc) {
 }
 
 var labelChart = function () {
-  var data = ["GL 1", "GL 2", "GL 3", "GL 4", "GL 5", "GL 6", "GL 7", "GL 8", "GL 9"];
+  var data = ["GL 1", "GL 2", "GL 3", "GL 4", "GL 5", "GL 6", "GL 7", "GL 8", "Total"];
 
   var margin = {top: 30, right: 10, bottom: 10, left: 10},
       width = 100 - margin.left - margin.right,

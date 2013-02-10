@@ -74,14 +74,19 @@ function HeadCountCtrl($scope) {
 
   $scope.change = function (){
     if ($scope.numTypeProp === "typePerc") {
-      $(".highcharts-container").remove();
+      $("#containerLeft").remove();
+      $(".containerLeftHolder").append("<div id='containerLeft'></div>");
       $scope.BUBreakdown = heatMapPercRaw;
       labelChart();
       varPercChart([0.2, 2.3, 4.5, -8.2, -26.9, 24.5, 0, 0.6, 1], true);
       varPercChart([-0.4, -0.2, -0.3, 0.1, 0.2, 0.3, 0, -0.1, -0.4], false);
     } else {
+      $("#containerLeft").remove();
+      $(".containerLeftHolder").append("<div id='containerLeft'></div>");
       $scope.BUBreakdown = heatMapRaw;
-      variancePerc();
+      labelChart();
+      varPercChart([1, 2.3, 4.5, 8.2, 26.9, 24.5, 0, 0.6, 1], true);
+      varPercChart([-0.4, -0.2, -0.3, 0.1, 0.2, 0.3, 0, -0.1, -0.4], false);
     }
   };
 
