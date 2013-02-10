@@ -1,10 +1,10 @@
-var varPercChart = function (data, isPerc) {
+var varianceChart = function (data) {
 
   var margin = {top: 30, right: 10, bottom: 10, left: 10},
       width = 100 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
-  var x0 = Math.max(-d3.min(data), d3.max(data));
+  var x0 = Math.max(-d3.min(data.data), d3.max(data.data));
 
   var x = d3.scale.linear()
       .domain([-x0, x0])
@@ -12,7 +12,7 @@ var varPercChart = function (data, isPerc) {
       .nice();
 
   var y = d3.scale.ordinal()
-      .domain(d3.range(data.length))
+      .domain(d3.range(data.data.length))
       .rangeRoundBands([0, height], .2);
 
   var svg = d3.select("#containerLeft")
@@ -23,20 +23,20 @@ var varPercChart = function (data, isPerc) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   svg.selectAll(".bar")
-      .data(data)
+      .data(data.data)
     .enter().append("rect")
-      .attr("class", function(d) { return d < 0 ? "bar negative" : "bar positive"; })
+      .attr("class", function(d) { return d < 0 ? data.barNegPos.left : data.barNegPos.right; })
       .attr("x", function(d) { return x(Math.min(0, d)); })
       .attr("y", function(d, i) { return y(i); })
       .attr("width", function(d) { return Math.abs(x(d) - x(0)); })
       .attr("height", y.rangeBand());
 
   svg.selectAll("text")
-      .data(data)
+      .data(data.data)
       .enter()
       .append("text")
       .text(function(d){
-        return isPerc ? d + "%" : d;
+        return data.isPerc ? d + "%" : d;
       })
       .attr("x", function(d) { return x((d >= 0) ? x0 * .2 : x0 * -1.2); })
       .attr("y", function(d, i) { return y(i) + y.rangeBand() / 2 + 5; })

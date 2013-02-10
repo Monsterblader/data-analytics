@@ -50,12 +50,13 @@
 
 .BUBclass {
 }
+
 .bar.positive {
-  fill: steelblue;
+  fill: MediumSeaGreen;
 }
 
 .bar.negative {
-  fill: brown;
+  fill: Crimson;
 }
 
 .axis text {
