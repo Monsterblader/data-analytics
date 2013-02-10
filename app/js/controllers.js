@@ -426,15 +426,15 @@ function ColleaguesCtrl($scope, $http) {
       chart: {
         renderTo: 'scatterchart-colleagues',
         type: 'scatter',
-        // style: { padding: '0px' },
-        zoomType: 'xy'
+        zoomType: 'xy',
+        width: 580
       },
       credits: { enabled: false },
       legend: {
           enabled: false
       },
       title: {
-        text: 'Sites'
+        text: ''
       },
       xAxis: {
         title: {

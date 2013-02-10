@@ -1,8 +1,8 @@
 .scatter-colleagues {
 	float: left;
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
+  width: 580px;
+  height: 460px;
+  margin-left: 20px;
 }
 
 .mark-exclamation:before {
@@ -27,15 +27,13 @@
 }
 
 .stack-colleagues {
-  width: 500px;
   height: 200px;
-  margin: 0 auto;
 }
 
 #stackbar-colleagues2 {
   height: 260px;
 }
 
-.bar-container {
-  margin-left: 200px;
+.boxHeader.colleagues {
+  margin-left: 20px;
 }

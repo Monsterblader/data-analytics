@@ -1,12 +1,17 @@
 <div class="row-fluid">
-  <div ng-controller="ColleaguesCtrl" class="scatter-colleagues" id="scatterchart-colleagues">
-  </div>
-
-  <div class="bar-container">
-    <div ng-controller="ColleaguesCtrl" class="stack-colleagues" id="stackbar-colleagues">
+  <div class="span6">
+    <div class="boxHeader colleagues">Sites</div>
+    <div ng-controller="ColleaguesCtrl" class="scatter-colleagues" id="scatterchart-colleagues">
     </div>
+  </div>
+  <div class="span6">
+    <div class="bar-container">
+      <div class="boxHeader">Employee answers to the key questions</div>
+      <div ng-controller="ColleaguesCtrl" class="stack-colleagues" id="stackbar-colleagues">
+      </div>
 
-    <div ng-controller="ColleaguesCtrl" class="stack-colleagues" id="stackbar-colleagues2">
+      <div ng-controller="ColleaguesCtrl" class="stack-colleagues" id="stackbar-colleagues2">
+      </div>
     </div>
   </div>
 </div>
