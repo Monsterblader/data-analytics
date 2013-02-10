@@ -31,9 +31,9 @@ function OperationsCtrl() {
 
 function HeadCountCtrl($scope) {
   $scope.numTypeProp = "typePerc";
-  $(".BUBclass").hide();
-  variancePerc();
-  grOp();
+  $scope.headerarray = [{title: "Actual", subTitle: "Current", value: "18,220", icon: "icon-arrow-down", delta: "112 from prior week"},
+                   {title: "Projection", subTitle: "End September 2012", value: "18,404", icon: "icon-ok", delta: "411 below target"},
+                   {title: "Projection", subTitle: "End December 2012", value: "16,887", icon: "icon-ok", delta: "453 below target"}];
   $scope.heatMapHead = ["Asia Minor", "SuperCard", "Western", "Africa", "Banking", "Corporate", "Wealth", "Head"];
   var heatMapRaw = [[{value: -122, sub: "to 3,447"}, {value: 20, sub: "to 1,033"}, {value: -45, sub: "to 2,044"}, {value: 17, sub: "to 1,076"}, {value: -20, sub: "to 1,012"}, {value: 23, sub: "to 1,950"}, {value: -12, sub: "to 730"}, {value: -5, sub: "to 197"}],
                     [{value: -112, sub: "to 221"}, {value: -28, sub: "to 66"}, {value: 24, sub: "to 131"}, {value: -20, sub: "to 69"}, {value: -35, sub: "to 65"}, {value: 25, sub: "to 125"}, {value: -24, sub: "to 47"}, {value: 0, sub: "to 13"}],
@@ -53,7 +53,7 @@ function HeadCountCtrl($scope) {
   heatMapRaw.forEach(function(subArray, key, origArray){
     subArray.forEach(function(val, key, subArr){
       if (val.value < 1) {
-        subArr[key].color = "green";
+        subArr[key].color = "MediumSeaGreen";
       } else if (val.value < 6) {
         subArr[key].color = "yellow";
       } else {
@@ -62,15 +62,16 @@ function HeadCountCtrl($scope) {
     });
   });
   $scope.BUBreakdown = heatMapRaw;
-  $scope.headerarray = [{title: "Actual", subTitle: "Current", value: "18,220", icon: "icon-arrow-down", delta: "112 from prior week"},
-                   {title: "Projection", subTitle: "End MandY", value: "18,404", icon: "icon-ok", delta: "411 below target"},
-                   {title: "Projection", subTitle: "End MandY", value: "16,887", icon: "icon-ok", delta: "453 below target"}];
+  $(".BUBclass").hide();
+  grOp();
 
   $scope.change = function (){
     if ($scope.numTypeProp === "typePerc") {
-      variancePerc();
+      $(".highcharts-container").remove();
+      varPercChart();
       $scope.BUBreakdown = heatMapPercRaw;
     } else {
+      variancePerc();
       $scope.BUBreakdown = heatMapRaw;
     }
   };
@@ -80,7 +81,6 @@ function HeadCountCtrl($scope) {
     $(".BUBreakdown").attr("class", "btn BUBreakdown rightBtnGrp");
     $(".GOclass").show();
     $(".BUBclass").hide();
-    // $("#containerRight").attr("class", "");
     $(".heatTable").hide();
     grOp();
   };
@@ -89,7 +89,6 @@ function HeadCountCtrl($scope) {
     $(".BUBreakdown").attr("class", "btn BUBreakdown rightBtnGrp active");
     $(".GOclass").hide();
     $(".BUBclass").show();
-    // $("#containerRight").attr("class", "hide");
     $(".heatTable").show();
   };
 }

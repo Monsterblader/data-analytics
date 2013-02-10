@@ -3,7 +3,7 @@
 }
 
 .greenish {
-	color: green;
+	color: MediumSeaGreen;
 }
 
 .heatTable {
@@ -24,19 +24,19 @@
   width: 150px;
 }
 
-#container2 {
-  min-width: 300px;
-  height: 400px;
-  margin: 0 auto;
-}
-
 .rightBtnGrp {
   width: 150px;
   height: 40px;
   text-align: left;
 }
 
-#hcRightImg {
+#containerLeft {
+  min-width: 300px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+#containerRight {
   min-width: 300px;
   height: 400px;
   margin: 0 auto;
@@ -49,4 +49,22 @@
 }
 
 .BUBclass {
+}
+.bar.positive {
+  fill: steelblue;
+}
+
+.bar.negative {
+  fill: brown;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
