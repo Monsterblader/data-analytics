@@ -52,9 +52,9 @@
   -webkit-border-radius: 5px;
   -moz-border-radius:    5px;
   border-radius:         5px;
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  -moz-box-shadow:    0 1px 3px rgba(0,0,0,0.6);
-  box-shadow:         0 1px 3px rgba(0,0,0,0.6);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow:    0 1px 3px rgba(0, 0, 0, 0.6);
+  box-shadow:         0 1px 3px rgba(0, 0, 0, 0.6);
   cursor: pointer;
 }
 
@@ -78,7 +78,7 @@
 }*/
 
 .blue-bar {
-  background-image: -webkit-gradient(linear,0 0,0 100%,from(#349EEB),to(#2C82C0));
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#349EEB), to(#2C82C0));
   margin-bottom: 20px;
 }
 
