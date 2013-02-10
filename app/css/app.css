@@ -199,7 +199,7 @@ i.icon-remove-sign::before {
   display: initial; /* reset Font Awesome's display:inline-block */
 }
 
-.sidebarright.row-fluid > p{
+.span2 >div > p{
   font-size: 23px;
   color: #294673;
 }
@@ -214,7 +214,14 @@ i.icon-remove-sign::before {
 .sidebarright .span12{
   margin-bottom: 20px;
 }
-  
+.sideBarWrap{
+  overflow-y:scroll;
+  overflow-x:visible;
+  max-height: 620px;
+}
+.sidebarright.row-fluid{
+  height: 1000px;
+}
 .footerDoc{
   color: #4995BF;
   padding-top: 1%;
@@ -231,6 +238,10 @@ i.icon-remove-sign::before {
 
 .span9::-webkit-scrollbar { 
     display: none; 
+}
+
+::-webkit-scrollbar{
+  display: none;
 }
 
 /*******************************
@@ -314,4 +325,5 @@ Styles for cost.html partial
 
 .container-fluid.fragment.blah {
   margin-left: 20px;
+  margin-right: 20px;
 }
