@@ -441,7 +441,7 @@ function ColleaguesCtrl($scope, $http) {
       },
       xAxis: {
         title: {
-          text: 'Will'
+          text: 'Will',
         },
         labels: {
           enabled: false
