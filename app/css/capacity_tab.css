@@ -156,21 +156,22 @@
   font-size: 0.9em;
 }
 
-.mark-tick:before {
+.capacity.mark-tick:before {
   content: "\2713";
   color: green;
   font-size: 1.2em;
   font-weight: bold;
 }
 
-.mark-exclamation:before {
+.capacity.mark-exclamation:before {
   content: "\0021";
   color: gold;
   font-size: 1.2em;
   font-weight: bold;
+  margin-left: 0;
 }
 
-.mark-cross:before {
+.capacity.mark-cross:before {
   content: "\00D7";
   color: red;
   font-size: 1.5em;

@@ -437,7 +437,7 @@ function ColleaguesCtrl($scope, $http) {
         type: 'scatter',
         // style: { padding: '0px' },
         zoomType: 'xy',
-        width: 670,
+        width: 622,
         height: 400,
         backgroundColor: '#F7F7F7'
       },
