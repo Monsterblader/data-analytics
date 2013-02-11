@@ -297,7 +297,7 @@ function ColleaguesCtrl($scope, $http) {
         chart: {
           renderTo: 'stackbar-colleagues',
           type: 'bar',
-          width: 700,
+          width: 640,
           height: 240,
           backgroundColor: '#F7F7F7',
           style: {
@@ -368,7 +368,7 @@ function ColleaguesCtrl($scope, $http) {
         chart: {
           renderTo: 'stackbar-colleagues2',
           type: 'bar',
-          width: 700,
+          width: 640,
           height: 280,
           style: {
             position: 'absolute',

@@ -50,6 +50,9 @@
   top: 560px;
 }
 
+#sickness{
+  margin-left: 4%;
+}
 #boxHeader, .scatter-colleagues, .bar-container, #sickness, #attrition {
   border: 1px solid lightgray;
   border-radius: 5px;
