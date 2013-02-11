@@ -21,7 +21,7 @@ function HomeCtrl($scope){
   ]
 
   $scope.documents = [
-    {title: 'Published Reports'},{title: 'Benchmark Findings'},{title: 'CB Bank News'},{title: 'March reports'}
+    {title: 'Published Reports'},{title: 'Benchmark Findings'},{title: 'CB Bank News'},{title: 'March reports'},{title: 'More docs'},{title: 'Even more docs'}
   ]
 }
 
