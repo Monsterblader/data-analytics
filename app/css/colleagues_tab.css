@@ -1,7 +1,7 @@
 .scatter-colleagues {
 	float: left;
   width: 694px;
-  height: 560px;
+  height: 400px;
   margin: 0 0 20px 20px;
 }
 
@@ -15,6 +15,8 @@
 
 .column {
   padding: 5px;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .uparrow:before {
@@ -32,13 +34,8 @@
   margin-left: 14px;
 }
 
-.stack-colleagues {
-  height: 200px;
-  width: 500px;
-}
-
-#stackbar-colleagues2 {
-  height: 260px;
+.stack-colleagues, #stackbar-colleagues2 {
+  height: 280px;
   width: 500px;
 }
 
@@ -47,11 +44,13 @@
 }
 
 .footer-container {
-  width: 500px;
+  width: 695px;
   margin-left: 21px;
+  position: absolute;
+  top: 560px;
 }
 
-.scatter-colleagues, .bar-container, #sickness, #attrition {
+#boxHeader, .scatter-colleagues, .bar-container, #sickness, #attrition {
   border: 1px solid lightgray;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
@@ -59,4 +58,13 @@
 
 .boxHeader.colleagues {
   margin-left: 20px;
+}
+
+.boxHeader {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.bar-container, #boxHeader {
+  margin-top: 25px;
 }
