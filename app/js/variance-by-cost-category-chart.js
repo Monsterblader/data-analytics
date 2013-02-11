@@ -8,6 +8,9 @@ var variancePerc = function () {
                 renderTo: 'containerLeft',
                 type: 'bar'
             },
+            credits: {
+                enabled: false
+            },
             title: {
                 text: ''
             },

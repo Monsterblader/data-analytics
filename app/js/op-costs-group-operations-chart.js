@@ -6,6 +6,9 @@ var grOp = function () {
                 renderTo: 'containerRight',
                 zoomType: 'xy'
             },
+            credits: {
+                enabled: false
+            },
             title: {
                 text: 'Total £, M'
             },
