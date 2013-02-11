@@ -55,7 +55,7 @@ function HeadCountCtrl($scope) {
       if (val.value < 1) {
         subArr[key].color = "MediumSeaGreen";
       } else if (val.value < 6) {
-        subArr[key].color = "yellow";
+        subArr[key].color = "gold";
       } else {
         subArr[key].color = "red";
       }
@@ -556,7 +556,7 @@ function OperationCostsCtrl($scope) {
       if (val.value <= 0) {
         subArr[key].color = "MediumSeaGreen";
       } else if (val.value < 1) {
-        subArr[key].color = "yellow";
+        subArr[key].color = "gold";
       } else {
         subArr[key].color = "red";
       }
