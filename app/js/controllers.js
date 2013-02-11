@@ -297,6 +297,7 @@ function ColleaguesCtrl($scope, $http) {
         chart: {
           renderTo: 'stackbar-colleagues',
           type: 'bar',
+          width: 700,
           backgroundColor: '#F7F7F7',
           style: {
             position: 'absolute',
@@ -364,8 +365,9 @@ function ColleaguesCtrl($scope, $http) {
         chart: {
           renderTo: 'stackbar-colleagues2',
           type: 'bar',
+          width: 700,
           style: {
-            position: 'absolute'
+            position: 'absolute',
           },
           backgroundColor: '#F7F7F7'
         },
@@ -430,6 +432,8 @@ function ColleaguesCtrl($scope, $http) {
         type: 'scatter',
         // style: { padding: '0px' },
         zoomType: 'xy',
+        width: 694,
+        height: 560,
         backgroundColor: '#F7F7F7'
       },
       credits: { enabled: false },
@@ -437,7 +441,7 @@ function ColleaguesCtrl($scope, $http) {
           enabled: false
       },
       title: {
-        text: 'Sites'
+        text: ''
       },
       xAxis: {
         title: {
@@ -479,7 +483,8 @@ function ColleaguesCtrl($scope, $http) {
               return this.point.name;
             },
             enabled: true,
-            y: -15
+            y: -15,
+            style: { fontSize: '13px', fontWeight: 'bold' }
           },
           states: {
             hover: {
