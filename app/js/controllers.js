@@ -297,7 +297,11 @@ function ColleaguesCtrl($scope, $http) {
         chart: {
           renderTo: 'stackbar-colleagues',
           type: 'bar',
+          width: 700,
+          height: 240,
+          backgroundColor: '#F7F7F7',
           style: {
+            paddingTop: '15px',
             position: 'absolute'
           }
         },
@@ -312,9 +316,10 @@ function ColleaguesCtrl($scope, $http) {
             enabled: true,
             align: 'left',
             x: 5,
-            y: -14,
+            y: -20,
             style: {
-              width: '350px'
+              width: '350px',
+              fontWeight: 'bold'
             }
           },
           lineWidth: 0,
@@ -331,7 +336,7 @@ function ColleaguesCtrl($scope, $http) {
           reversed: true,
           floating: true,
           verticalAlign: 'top',
-          x: 60
+          x: 170
         },
         tooltip: {
           formatter: function() {
@@ -363,9 +368,12 @@ function ColleaguesCtrl($scope, $http) {
         chart: {
           renderTo: 'stackbar-colleagues2',
           type: 'bar',
+          width: 700,
+          height: 280,
           style: {
-            position: 'absolute'
-          }
+            position: 'absolute',
+          },
+          backgroundColor: '#F7F7F7'
         },
         credits: { enabled: false },
         title: {
@@ -378,9 +386,10 @@ function ColleaguesCtrl($scope, $http) {
             enabled: true,
             align: 'left',
             x: 5,
-            y: -14,
+            y: -16,
             style: {
-              width: '350px'
+              width: '350px',
+              fontWeight: 'bold'
             }
           },
           lineWidth: 0,
@@ -426,8 +435,11 @@ function ColleaguesCtrl($scope, $http) {
       chart: {
         renderTo: 'scatterchart-colleagues',
         type: 'scatter',
+        // style: { padding: '0px' },
         zoomType: 'xy',
-        width: 580
+        width: 622,
+        height: 400,
+        backgroundColor: '#F7F7F7'
       },
       credits: { enabled: false },
       legend: {
@@ -438,7 +450,12 @@ function ColleaguesCtrl($scope, $http) {
       },
       xAxis: {
         title: {
-          text: 'Will'
+          text: 'Will',
+          style: {
+            fontSize: '1.em',
+            fontWeight: 'bold',
+            textDecoration: 'underline'
+          },
         },
         labels: {
           enabled: false
@@ -449,7 +466,12 @@ function ColleaguesCtrl($scope, $http) {
       yAxis: {
         gridLineWidth: 0,
         title: {
-          text: 'Skill'
+          text: 'Skill',
+          style: {
+            fontSize: '1.2em',
+            fontWeight: 'bold',
+            textDecoration: 'underline'
+          }
         },
         labels: {
           enabled: false
@@ -476,7 +498,8 @@ function ColleaguesCtrl($scope, $http) {
               return this.point.name;
             },
             enabled: true,
-            y: -15
+            y: -15,
+            style: { fontSize: '13px', fontWeight: 'bold' }
           },
           states: {
             hover: {
