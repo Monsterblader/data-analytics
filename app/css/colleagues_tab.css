@@ -1,6 +1,6 @@
 .scatter-colleagues {
 	float: left;
-  width: 694px;
+  width: 670px;
   height: 400px;
   margin: 0 0 20px 20px;
 }
@@ -44,7 +44,7 @@
 }
 
 .footer-container {
-  width: 695px;
+  width: 670px;
   margin-left: 21px;
   position: absolute;
   top: 560px;
@@ -63,6 +63,10 @@
 .boxHeader {
   font-weight: bold;
   font-size: 1.5em;
+}
+
+#boxHeader {
+  width: 640px;
 }
 
 .bar-container, #boxHeader {
