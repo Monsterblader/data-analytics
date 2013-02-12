@@ -70,3 +70,7 @@
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
+.rev-h3 {
+  font-weight: normal;
+}
