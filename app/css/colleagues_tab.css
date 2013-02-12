@@ -15,7 +15,7 @@
 
 .column {
   padding: 5px;
-  font-weight: bold;
+  /*font-weight: bold;*/
   font-size: 1.2em;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .boxHeader {
-  font-weight: bold;
+  /*font-weight: bold;*/
   font-size: 1.5em;
 }
 

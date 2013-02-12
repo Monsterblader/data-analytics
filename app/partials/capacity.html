@@ -28,7 +28,7 @@
 <!-- Target Column Totals -->
 <div ng-class="{ target: 'show-totals', actual: ''}[activeGraph]" class="row-fluid target-column-totals">
   <div class="span1 difference" ng-repeat="difference in targetVolumeDifference">
-    <p class="column">{{ difference[0].column }}</p>
+    <p class="capacity column">{{ difference[0].column }}</p>
     <p class="average {{ difference[0].difference | color }}">{{ difference[0].average }}&#37;</p>
     <!-- HTML Symbols are added throught the CSS -->
     <p class="diff capacity mark-{{ difference[0].difference | mark }}">
@@ -40,7 +40,7 @@
 <!-- Actual Column Totals -->
 <div ng-class="{ target: '', actual: 'show-totals'}[activeGraph]" class="row-fluid actual-column-totals">
   <div class="span1 difference" ng-repeat="difference in actualVolumeDifference">
-    <p class="column">{{ difference[0].column }}</p>
+    <p class="capacity column">{{ difference[0].column }}</p>
     <p class="average {{ difference[0].difference | color }}">{{ difference[0].average }}&#37;</p>
     <!-- HTML Symbols are added throught the CSS -->
     <p class="diff capacity mark-{{ difference[0].difference | mark }}">
