@@ -1,6 +1,5 @@
 .scatter-colleagues {
 	float: left;
-  /*width: 670px;*/
   height: 400px;
   margin: 0 0 20px 20px;
 }
@@ -15,7 +14,6 @@
 
 .column {
   padding: 5px;
-  /*font-weight: bold;*/
   font-size: 1.2em;
 }
 
@@ -61,12 +59,7 @@
 }
 
 .boxHeader {
-  /*font-weight: bold;*/
   font-size: 1.5em;
-}
-
-#boxHeader {
-  /*width: 640px;*/
 }
 
 .bar-container, #boxHeader {
